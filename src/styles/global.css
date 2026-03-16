@@ -2,52 +2,50 @@
 
 
 
-
-
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; 
+@tailwind utilities;
 
-:root {
-  --ink:        #07080f;
-  --deep:       #0b0d17;
-  --surface:    #10131f;
-  --raised:     #161928;
-  --border:     #1e2235;
-  --gold:       #c8a96e;
-  --gold-bright:#e2c48a;
-  --gold-dim:   #8a6f42;
-  --gold-glow:  rgba(200,169,110,0.12);
-  --ivory:      #ede8df;
-  --cream:      #c8c2b6;
-  --mist:       #8a8d9f;
-  --ghost:      #565869;
+.bg-offwhite {
+    background-color: #f8f6f1;
 }
-
-* { box-sizing: border-box; padding: 0; margin: 0; }
-html { scroll-behavior: smooth; }
 
 body {
-  background-color: var(--ink);
-  color: var(--ivory);
+  background-color: #f8f6f1;
+  color: #1f2937;
   font-family: 'DM Sans', sans-serif;
-  overflow-x: hidden;
-  cursor: none;
-}
-.hero{
-    font-size: clamp(3.5rem, 10vw, 8.5rem);
-    letter-spacing: "-0.02em";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@layer utilities {
-  .font-display  { font-family: 'Cormorant Garamond', serif; }
-  .font-mono-dm  { font-family: 'DM Mono', monospace; }
-  .text-ivory    { color: var(--ivory); }
-  .text-cream    { color: var(--cream); }
-  .text-mist     { color: var(--mist); }
-  .text-ghost    { color: var(--ghost); }
-  .text-gold     { color: var(--gold); }
-  .bg-ink        { background-color: var(--ink); }
-  .bg-surface    { background-color: var(--surface); }
-  .bg-raised     { background-color: var(--raised); }
-} 
+
+    
+
+
+@media (hover: hover) and (pointer: fine) {
+  :root,
+  body,
+  a,
+  button,
+  [role="button"],
+  input,
+  select,
+  textarea {
+    cursor: none;
+  }
+}
+
+
+
+/* took a while to get this right */
+
+.bg-grid-olive {
+  background-image: linear-gradient(to right, rgba(62, 77, 25, 0.05) 2px, transparent 2px),
+    linear-gradient(to bottom, rgba(62, 77, 25, 0.05) 2px, transparent 2px);
+  background-size: 20px 20px;
+}
+
+
+
+
+
