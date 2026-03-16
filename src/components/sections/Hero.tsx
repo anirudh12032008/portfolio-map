@@ -39,12 +39,22 @@ export function Hero() {
 </div>
     </motion.div>
 
-
+{/* need to make this special later */}
     <motion.div className="mt-5 mb-8">
         <p className="font-display font-light text-cream/80">
             I'm a BUILDER
         </p>
     </motion.div>
+
+
+<motion.div>
+    <p className="font-sans text-base text-mist/50 tracking-wide max-w-sm mx-auto mb-12">
+    Building, Learning, etcetcetedfjgvslkhdfgj </p>
+</motion.div>
+
+
+
+
 </motion.div>
     
     

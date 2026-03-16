@@ -3,7 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities; */
-
+/* 
 :root {
   --ink:        #07080f;
   --deep:       #0b0d17;
@@ -46,4 +46,4 @@ body {
   .bg-ink        { background-color: var(--ink); }
   .bg-surface    { background-color: var(--surface); }
   .bg-raised     { background-color: var(--raised); }
-}
+} */
