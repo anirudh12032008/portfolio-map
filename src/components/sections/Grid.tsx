@@ -8,7 +8,7 @@ interface GridProps {
 
 export const Grid = ({className}: GridProps) => {
     const ref = useRef<HTMLCanvasElement>(null);
-    const mouseref = useRef({x:-200, y:-200, active:false});
+    const mouseref = useRef({x:0, y:0, active:false});
     const anim = useRef<number>(0);
 
 
@@ -17,8 +17,8 @@ export const Grid = ({className}: GridProps) => {
     const SPACING = 40;
     const WIDTH = 2;
     const COLOR = "rgba(50,62,20,0.08)";
-    const RADIUS = 120;
-    const STRENGTH = 1.8;
+    const RADIUS = 200;
+    const STRENGTH = 4;
 
     useEffect(() => {
         const k = window.matchMedia("(hover: hover) and (pointer: fine)");
@@ -57,7 +57,7 @@ const draw = useCallback(() => {
                     const angle = Math.atan2(dy, dx);
                     drx += force * Math.cos(angle);
                     dry += force * Math.sin(angle);
-                    const push = force* (STRENGTH - d) * 0.15
+                    const push = force* (STRENGTH - d) * 0.5
                 }
             }
 

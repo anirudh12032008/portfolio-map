@@ -7,8 +7,8 @@ export const Cursor = () => {
     const dX = useMotionValue(-100);
     const dY = useMotionValue(-100);
     // ahh need to twek this some day........
-    const rX = useSpring( dX, { stiffness: 300, damping: 30 });
-    const rY = useSpring( dY, { stiffness: 300, damping: 30 });
+    const rX = useSpring( dX, { stiffness: 150, damping: 30, mass: 0.8 });
+    const rY = useSpring( dY, { stiffness: 150, damping: 30, mass: 0.8 });
 
     // const [active, setActive] = useState(false);
     const [hovered, setHovered] = useState(false);
