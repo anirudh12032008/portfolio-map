@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+/* 
+@tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+:root {
+  --ink:        #07080f;
+  --deep:       #0b0d17;
+  --surface:    #10131f;
+  --raised:     #161928;
+  --border:     #1e2235;
+  --gold:       #c8a96e;
+  --gold-bright:#e2c48a;
+  --gold-dim:   #8a6f42;
+  --gold-glow:  rgba(200,169,110,0.12);
+  --ivory:      #ede8df;
+  --cream:      #c8c2b6;
+  --mist:       #8a8d9f;
+  --ghost:      #565869;
+}
+
+* { box-sizing: border-box; padding: 0; margin: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--ink);
+  color: var(--ivory);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+.hero{
+    font-size: clamp(3.5rem, 10vw, 8.5rem);
+    letter-spacing: "-0.02em";
+}
+
+@layer utilities {
+  .font-display  { font-family: 'Cormorant Garamond', serif; }
+  .font-mono-dm  { font-family: 'DM Mono', monospace; }
+  .text-ivory    { color: var(--ivory); }
+  .text-cream    { color: var(--cream); }
+  .text-mist     { color: var(--mist); }
+  .text-ghost    { color: var(--ghost); }
+  .text-gold     { color: var(--gold); }
+  .bg-ink        { background-color: var(--ink); }
+  .bg-surface    { background-color: var(--surface); }
+  .bg-raised     { background-color: var(--raised); }
+}

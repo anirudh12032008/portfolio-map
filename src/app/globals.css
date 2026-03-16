@@ -24,3 +24,22 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+.glow{
+  text-shadow: 0 0 20px rgba(200, 169, 110, 0.8), 0 0 30px rgba(200, 169, 110, 0.6), 0 0 40px rgba(200, 169, 110, 0.4);
+}
+
+
+@layer utilities {
+  .font-display  { font-family: 'Cormorant Garamond', serif; }
+  .font-mono-dm  { font-family: 'DM Mono', monospace; }
+  .text-ivory    { color: var(--ivory); }
+  .text-cream    { color: var(--cream); }
+  .text-mist     { color: var(--mist); }
+  .text-ghost    { color: var(--ghost); }
+  .text-gold     { color: var(--gold); }
+  .bg-ink        { background-color: var(--ink); }
+  .bg-surface    { background-color: var(--surface); }
+  .bg-raised     { background-color: var(--raised); }
+}
