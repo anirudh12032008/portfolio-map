@@ -8,7 +8,7 @@ interface GridProps {
 
 export const Grid = ({className}: GridProps) => {
     const ref = useRef<HTMLCanvasElement>(null);
-    const mouseref = useRef({x:0, y:0, active:false});
+    const mouseref = useRef({x:-200, y:-200, active:false});
     const anim = useRef<number>(0);
 
 
@@ -17,8 +17,8 @@ export const Grid = ({className}: GridProps) => {
     const SPACING = 40;
     const WIDTH = 2;
     const COLOR = "rgba(50,62,20,0.08)";
-    const RADIUS = 200;
-    const STRENGTH = 4;
+    const RADIUS = 135;
+    const STRENGTH = 1.7;
 
     useEffect(() => {
         const k = window.matchMedia("(hover: hover) and (pointer: fine)");
@@ -43,9 +43,9 @@ const draw = useCallback(() => {
     ctx.lineWidth = WIDTH;
 
 
-    for (let x = 0; x < width; x += SPACING) {
+    for (let x = 0; x <= width; x += SPACING) {
         ctx.beginPath();
-        for (let y = 0; y < height; y += SPACING) {
+        for (let y = 0; y <= height; y += SPACING) {
             let drx = x;
             let dry = y;
             if (active) {
@@ -55,9 +55,9 @@ const draw = useCallback(() => {
                 if (d < RADIUS) {
                     const force = ( 1- d / RADIUS) * STRENGTH;
                     const angle = Math.atan2(dy, dx);
-                    drx += force * Math.cos(angle);
-                    dry += force * Math.sin(angle);
                     const push = force* (STRENGTH - d) * 0.5
+                    drx += force * Math.cos(angle) * push; 
+                    dry += force * Math.sin(angle) * push;
                 }
             }
 
@@ -71,9 +71,9 @@ const draw = useCallback(() => {
     }
 
 
-    for (let y = 0; y < height; y += SPACING) {
+    for (let y = 0; y <= height; y += SPACING) {
         ctx.beginPath();
-        for (let x = 0; x < width; x += SPACING) {
+        for (let x = 0; x <= width; x += SPACING) {
             let drx = x;
             let dry = y;
             if (active) {

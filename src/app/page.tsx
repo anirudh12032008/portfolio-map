@@ -15,6 +15,8 @@ export default function Home() {
 
       <Grid className="absolute inset-0" /> 
       </section>
+
+      {/* temp removing this as it did not fit well in the theme */}
       {/* <Hero/> */}
     </div>
   );

@@ -7,8 +7,8 @@ export const Cursor = () => {
     const dX = useMotionValue(-100);
     const dY = useMotionValue(-100);
     // ahh need to twek this some day........
-    const rX = useSpring( dX, { stiffness: 150, damping: 30, mass: 0.8 });
-    const rY = useSpring( dY, { stiffness: 150, damping: 30, mass: 0.8 });
+    const rX = useSpring( dX, { stiffness: 150, damping: 20, mass: 0.5 });
+    const rY = useSpring( dY, { stiffness: 150, damping: 20, mass: 0.5 });
 
     // const [active, setActive] = useState(false);
     const [hovered, setHovered] = useState(false);
@@ -30,8 +30,9 @@ export const Cursor = () => {
 
 
         const move = (e: MouseEvent) => {
-            dX.set(e.clientX - 12);
-            dY.set(e.clientY - 12);
+            // i alr added the offset
+            dX.set(e.clientX );
+            dY.set(e.clientY);
          const t = e.target as HTMLElement;
          if (
             t.tagName.toLowerCase() === "a" ||
