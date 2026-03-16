@@ -11,14 +11,14 @@ export default function Home() {
     <div className="relative w-full overflow-hidden ">
       <Cursor />
       {/* patience my friend */}
-      <section className="justify-center pt-32 relative min-h-screen ">
+      <section className="justify-center relative min-h-screen ">
 
       <Grid className="absolute inset-0" /> 
+      <Hero/>
       </section>
 
       {/* temp removing this as it did not fit well in the theme */}
       {/* adding back but with significant changes */}
-      <Hero/>
     </div>
   );
 }
