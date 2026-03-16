@@ -1,10 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap');
 
 
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+:root {
+  --bg:       #FAFAF8;
+  --surface:  #F5F3EE;
+  --border:   #E2DDD3;
+  --ink:      #1A1A1A;
+  --ink-soft: #3D3935;
+  --ink-muted:#6B6560;
+  --navy:     #1E3A5F;
+  --gold:     #C9A96E;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: var(--surface); }
+::-webkit-scrollbar-thumb  { background: var(--border); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-muted); }
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.enter {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+
+/* i fking love this font :yay: */
+.text-heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+letter-spacing: -0.01em;
+  line-height: 1.2;}
+
+
+.text-display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  line-height: 1.05;
+}
 
 .bg-offwhite {
     background-color: #f8f6f1;
@@ -14,13 +75,13 @@
 .bg-olive-dark{
     background-color: #3e4d19;
 }
-body {
+/* body {
   background-color: #f8f6f1;
   color: #1f2937;
   font-family: 'DM Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 
 
     

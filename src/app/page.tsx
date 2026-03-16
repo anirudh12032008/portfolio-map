@@ -17,7 +17,8 @@ export default function Home() {
       </section>
 
       {/* temp removing this as it did not fit well in the theme */}
-      {/* <Hero/> */}
+      {/* adding back but with significant changes */}
+      <Hero/>
     </div>
   );
 }

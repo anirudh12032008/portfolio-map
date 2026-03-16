@@ -17,8 +17,9 @@ export const Grid = ({className}: GridProps) => {
     const SPACING = 40;
     const WIDTH = 2;
     const COLOR = "rgba(50,62,20,0.08)";
-    const RADIUS = 135;
-    const STRENGTH = 1.7;
+    const RADIUS = 205;
+    // six sevennnnn
+    const STRENGTH = 1.067;
 
     useEffect(() => {
         const k = window.matchMedia("(hover: hover) and (pointer: fine)");
