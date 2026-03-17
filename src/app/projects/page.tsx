@@ -158,7 +158,25 @@ export default function Projects() {
 
 
 
-            >       
+            >
+
+
+                    {fil.map((p, i) => (
+                        <FadeIn key={p.title} delay={i * 0.1}>
+                            <div className="group relative rounded-2xl border border-cream-200 bg-cream-50 p-7 transition-all duration-300 hoer:shadow-card-lg hover:-translate-y-1 hover:border-cream-300 flex flex-col h-full">
+                                <span>{p.year}</span>
+                                <h3 className="text-xl font-bold text-gray-800">{p.title}</h3>
+                                <p className="text-gray-600 mt-2">{p.description}</p>
+                                <a href={p.github} target="_blank" rel="noopener noreferrer" className="mt-4 text-amber-500 hover:text-amber-600 flex items-center">
+                                    <GH />
+                                    <span className="ml-2">View on GitHub</span>
+                                </a>
+                            </div>
+                        </FadeIn>
+                    )
+
+
+
             </motion.div>
              </AnimatePresence>
             
