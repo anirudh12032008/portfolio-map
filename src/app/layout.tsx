@@ -5,6 +5,7 @@ import "./globals.css"
 import { Cursor } from "@/components/sections/Cursor";
 import { Grid } from "@/components/sections/Grid";
 import { Nav } from "@/components/sections/Nav";
+import { Footer } from "@/components/sections/Footer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -34,7 +35,10 @@ export default function RootLayout({
           <Grid className="absolute inset-0" />
           <Nav />
           <Cursor />
-          <div className="relative z-10">{children}</div>
+          <div className="relative z-10">
+            {children}
+            <Footer />
+          </div>
         </div>
       </body>
     </html>
