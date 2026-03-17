@@ -34,11 +34,32 @@ export function Nav() {
     useEffect(() => {setMenu(false)}, [pathname]);
     return (
 <>
-<header className={`fixed top-0 w-full insert-x-0 z-50  transition-all duration-500 border-b ${scroll ? "bg-offwhite/50 py-3 backdrop-blur-md" : "bg-offwhite/80 py-7 backdrop-blur-md"} `}>
+<header className={`fixed top-0 w-full insert-x-0 z-50  transition-all duration-500 border-b ${scroll ? "bg-offwhite/50 py-2 backdrop-blur-md" : "bg-offwhite/80 py-5 backdrop-blur-md"} `}>
 <div className="max-w-5xl mx-auto px-6 flex items-center justify-between">
     <Link href="/" className="font-serif text-2xl font-medium px-6  block text-ink">
         Anirudh
     </Link>
+
+
+
+
+
+<nav className="hidden md:flex items-center gap-8">
+    {links.map(({href, label}) => (
+        <Link
+            key={href}
+            href={href}
+            className={`hover:text-ink/70 transition-colors duration-300 ${pathname === href ? "text-ink font-medium" : "text-ink/70"}`}
+        >
+            {label}
+        </Link>
+    ))}
+</nav>
+
+
+
+
+
 </div>
 </header>
 
