@@ -34,5 +34,14 @@ export function Nav() {
     useEffect(() => {setMenu(false)}, [pathname]);
     return (
 <>
-nav</>
+<header className={`fixed top-0 insert-x-0 z-10  transition-all duration-500 border-b ${scroll ? "bg-offwhite/50 py-2 backdrop-blur-md" : "bg-offwhite/80 py-5 backdrop-blur-md"} `}>
+<div className="max-w-5xl mx-auto px-6 flex items-center justify-between">
+    <Link href="/" className="font-serif text-2xl font-medium px-6  block text-ink">
+        Anirudh
+    </Link>
+</div>
+</header>
+
+
+</>
     )}
