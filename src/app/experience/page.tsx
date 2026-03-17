@@ -1,4 +1,5 @@
 "use client"
+import { FadeIn, Heading, Section } from "@/components/sections/primitives";
 import { desc, div } from "framer-motion/client";
 
 const exp = [
@@ -103,25 +104,27 @@ function Experience({   title,
 
 export default function ExpPage() {
     return(
-       <div className="relative w-full overflow-hidden ">
-        <section className="justify-center relative min-h-screen ">
+       <div className="page-enter pt-28">
+        <Section>
+
+        
         {/* <div className="max-w-2xl mx-auto px-6 py-20">
             <p className="text-xs uppercase tracking-widest text-gold mb-2"> Background </p>
             <h2 className="text-4xl font-bold text-cream-800 mb-4"> Experience </h2>
             <p className="text-lg text-cream-600 mb-12"> Programs I've been part of, communities I've contributed to, and challenges I've helped run. </p>
             </div> */}
-<div className="mb-10 md:mb-14 flex flex-col items-center ">
+{/* <div className="mb-10 md:mb-14 flex flex-col items-center ">
     
-</div>
+</div> */}
 
-
+<Heading eye="Background" title="Experience" desc="Programs I've been part of, communities I've contributed to, and challenges I've helped run." />
 
 
             <div className="space-y-12">
 
 
                 {exp.map(({ category, items }) => (
-                    <div key={category}>
+                    <FadeIn key={category}>
                         <div className="flex items-center gap-4 mb-3">
                             <span className="text-sm uppercase tracking-wider font-sans text-ink-faint">{category}</span>
                 {/* call me genuius for using this lol */}
@@ -134,10 +137,9 @@ export default function ExpPage() {
 ))}
                 </div>
 
-</div>
+</FadeIn>
                 ))}            
             </div>
-            </section>
-            </div>
+</Section>            </div>
     )
 }

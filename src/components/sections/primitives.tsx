@@ -50,7 +50,7 @@ export function FadeIn({
 
 
 
-export function Section({children, className="", id,}: {children: React.ReactNode; className?: string; id: string   }) {
+export function Section({children, className="", id,}: {children: React.ReactNode; className?: string; id?: string   }) {
     return (
         <section id={id} className={`max-w-5xl mx-auto px-6 py-16 md:py-24 ${className}`}>
             {children}
@@ -67,9 +67,17 @@ export function Heading({eye, title, desc, center=false}: {eye?: string; title: 
             <div className={clsx("mb-10 md:mb-14", center && "flex flex-col items-center")}>
                 {eye && <span className="text-xs inline-block font-sans font-medium uppercase tracking-widest text-gold mb-3">{eye}</span>}
                 
-                <h2 className="text-display font-serif text-display-lg text-ink">{title}</h2>
+                <h2 className="text-display font-serif text-6xl text-ink">{title}</h2>
                 {desc && <p className="text-base text-ink-muted font-light leading-relaxed max-w-xl mt-4">{desc}</p>}
             </div>
         </FadeIn>
     )
 }
+
+
+
+
+
+
+
+
