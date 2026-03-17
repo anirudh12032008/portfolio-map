@@ -151,7 +151,7 @@ function Experience({   title,
 
 export default function ExpPage() {
     return(
-       <div className="page-enter pt-28">
+       <div className="page-enter pt-16">
         <Section>
 
         
