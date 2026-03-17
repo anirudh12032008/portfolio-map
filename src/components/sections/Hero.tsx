@@ -67,7 +67,7 @@
 
 
 
-import { motion } from "framer-motion";
+import { animate, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 
@@ -173,6 +173,24 @@ className="mt-3 text-sm text-ink-muted">
 
 
 
+    </motion.div>
+
+
+
+
+    <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1], delay: 1.5 }}
+
+    className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-ink-muted font-sans flex items-center gap-2">
+        {/* i can't make it better so used copilot here  */}
+        <span className="text-[11px] uppercase tracking-[0.18em]">
+            Scroll
+        </span>
+        <span aria-hidden="true" className="inline-block text-base leading-none animate-bounce">
+            ↓
+        </span>
     </motion.div>
         </div>
     )
