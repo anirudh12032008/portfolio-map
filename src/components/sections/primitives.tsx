@@ -77,7 +77,24 @@ export function Heading({eye, title, desc, center=false}: {eye?: string; title: 
 
 
 
-
+export function Tag({
+  label,
+  active = false,
+  onClick,
+}: {
+  label: string;
+  active?: boolean;
+  onClick?: () => void;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      className={clsx("tag cursor-pointer select-none", active && "active")}
+    >
+      {label}
+    </button>
+  );
+}
 
 
 
