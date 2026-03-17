@@ -99,7 +99,7 @@ export function Cards(){
                     <motion.div key={c.href} variants={item}> 
                     
                     <Link href={c.href} className="group block h-full">
-                    <div className="relative h-full rounded-2xl border border-border bg-surface p-6 transition-transform duration-200 hover:border-navy hover:-translate-y-1">
+                    <div className="relative h-full rounded-2xl border border-border bg-surface p-6 shadow-[0_1px_2px_rgba(26,26,26,0.04)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(30,58,95,0.10),0_0_0_1px_rgba(30,58,95,0.14)]">
 <span className={`inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-sans tabular-nums ${c.color}`}> {c.sr} </span>
 
 

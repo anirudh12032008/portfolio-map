@@ -103,20 +103,16 @@ function Experience({   title,
 
 export default function ExpPage() {
     return(
-        // <SectionHeading
-        //   eyebrow="Background"
-        //   title="Experience"
-        //   description="Programs I've been part of, communities I've contributed to, and challenges I've helped run."
-        // />
-// write the above thing without using the section heading component and instead just use regular html and tailwind classes
-        <div className="relative w-full overflow-hidden ">
+       <div className="relative w-full overflow-hidden ">
         <section className="justify-center relative min-h-screen ">
-        <div className="max-w-2xl mx-auto px-6 py-20">
+        {/* <div className="max-w-2xl mx-auto px-6 py-20">
             <p className="text-xs uppercase tracking-widest text-gold mb-2"> Background </p>
             <h2 className="text-4xl font-bold text-cream-800 mb-4"> Experience </h2>
             <p className="text-lg text-cream-600 mb-12"> Programs I've been part of, communities I've contributed to, and challenges I've helped run. </p>
-            </div>
-
+            </div> */}
+<div className="mb-10 md:mb-14 flex flex-col items-center ">
+    
+</div>
 
 
 
