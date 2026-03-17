@@ -229,6 +229,25 @@ export default function ExpPage() {
 </FadeIn>
                 ))}            
             </div>
+
+{/* <3 */}
+
+
+<FadeIn delay={0.2} >
+
+    <div className="mt-16 rounded-2xl bg-navy/5 border border-navy/15 p-8">
+    <p className="font-serif italic text-xl text-navy leading-relaxed">
+                The best part of every program isn't in the project, its in the people
+    </p>
+
+    <p className="mt-3  font-sans text-ink-muted tracking-wider">
+        ~ Something I genuienly belive :)
+    </p>
+    </div>
+</FadeIn>
+
+
+
           </Section>
         </section>
       </div>
