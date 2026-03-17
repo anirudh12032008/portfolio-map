@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Anirudh Sahu",
   description: "Personal portfolio of Anirudh Sahu, who loves building stuff",
-  icons: { icon: "/favicon.ico" },
+  icons: { icon: "/favicon.svg" },
   openGraph: {
     title: "Anirudh Sahu",
     description: "Personal portfolio of Anirudh Sahu, who loves building stuff",
