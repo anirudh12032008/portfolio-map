@@ -15,8 +15,8 @@ export default function Home() {
       <section className="justify-center relative min-h-screen ">
 
       <Grid className="absolute inset-0" /> 
-      <Cards/>
       <Hero/>
+      <Cards/>
       </section>
 
       {/* temp removing this as it did not fit well in the theme */}
