@@ -1,3 +1,4 @@
+"use client"
 import { use, useEffect, useState } from "react";
 import { motion, useSpring, useMotionValue } from "framer-motion";
 import clsx from "clsx";

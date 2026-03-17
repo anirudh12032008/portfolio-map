@@ -10,7 +10,7 @@ import { useState } from "react";
 export default function Home() {
   return (
     <div className="relative w-full overflow-hidden ">
-      <Cursor />
+      {/* <Cursor /> */}
       {/* patience my friend */}
       <section className="justify-center relative min-h-screen ">
 
