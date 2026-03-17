@@ -31,8 +31,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="relative min-h-screen w-full text-ink bg-cream-50 overflow-hidden">
-          <Nav />
           <Grid className="absolute inset-0" />
+          <Nav />
           <Cursor />
           <div className="relative z-10">{children}</div>
         </div>
