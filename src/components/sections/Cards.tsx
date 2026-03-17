@@ -74,7 +74,7 @@ const item = {
 
 export function Cards(){
     return (
-        <div>
+        <div className="mt-20 pt-3">
             <motion.h2 
                 variants={item}
                 initial="hidden"
@@ -90,8 +90,8 @@ export function Cards(){
             variants={cont}
             initial="hidden"
             whileInView="show"
-            viewport={{once: true, margin: "-100px"}}
-            className="grid md:grid-cols-2 grid-cols-1 gap-8 max-w-4xl mx-auto"
+            viewport={{once: true, margin: "-80px"}}
+            className="grid sm:grid-cols-2 grid-cols-1 gap-4 max-w-6xl mx-auto"
             >
 
 
@@ -107,7 +107,7 @@ export function Cards(){
 <p className="text-ink-muted group-hover:text-ink transition-colors duration-200"> {c.desc} </p>
 <p className="mt-5 text-[10px] uppercase tracking-widest text-ink-muted font-sans"> {c.tag} </p>
 
-<div className="absolute bottom-6 right-6 w-8 h-8 rounded-full border border-border flex items-center justify-center text-ink-muted group-hover:border-navy group-hover:text-navy transition-colors duration-200">
+<div className="absolute bottom-6 right-6 w-8 h-8 rounded-full border border-border flex items-center justify-center text-ink-muted group-hover:border-navy group-hover:text-white group-hover:bg-navy transition-colors duration-200">
     {/* <span className="absolute -bottom-2 -right-2 w-5 h-5 bg-cream-200 rounded-full group-hover:bg-navy transition-colors duration-200">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3 h-3 text-white">
   <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
