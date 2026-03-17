@@ -20,10 +20,25 @@
 	--offwhite: #F8F6F1;
   --surface:  #F5F3EE;
   --border:   #E2DDD3;
+  --grid-line: rgba(62, 77, 25, 0.08);
   --ink:      #1A1A1A;
   --ink-soft: #3D3935;
   --ink-muted:#6B6560;
   --navy:     #1E3A5F;
 	--olive-dark:#3E4D19;
   --gold:     #C9A96E;
+}
+
+:root.dark {
+	--bg:        #0f1218;
+	--offwhite:  #151a22;
+	--surface:   #1a2230;
+	--border:    #2b3547;
+	--grid-line: rgba(138, 168, 209, 0.12);
+	--ink:       #e9edf5;
+	--ink-soft:  #c8d0dd;
+	--ink-muted: #95a0b3;
+	--navy:      #8aa8d1;
+	--olive-dark:#6b7f4b;
+	--gold:      #d8bc86;
 }

@@ -102,11 +102,11 @@ export default function Timeline() {
                 border: "1px solid var(--border)",
               }}
               contentStyle={{
-                background: "rgba(248, 246, 241, 0.78)",
+                background: "color-mix(in srgb, var(--offwhite) 78%, transparent)",
                 color: "var(--ink)",
                 border: "1px solid var(--border)",
                 borderRadius: "1rem",
-                boxShadow: "0 10px 30px rgba(26,26,26,0.05)",
+                boxShadow: "0 10px 30px color-mix(in srgb, var(--ink) 10%, transparent)",
                 backdropFilter: "blur(1px)",
               }}
               contentArrowStyle={{ borderRight: "7px solid var(--border)" }}

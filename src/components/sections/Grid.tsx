@@ -39,9 +39,12 @@ const draw = useCallback(() => {
 
     const {width, height} = canavas;
     const {x: mx, y: my, active} = mouseref.current;
+    const lineColor = getComputedStyle(document.documentElement)
+        .getPropertyValue("--grid-line")
+        .trim() || COLOR;
 
     ctx.clearRect(0, 0, width, height);
-    ctx.strokeStyle = COLOR;
+    ctx.strokeStyle = lineColor;
     ctx.lineWidth = WIDTH;
 
 
