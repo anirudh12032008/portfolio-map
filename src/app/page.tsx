@@ -3,6 +3,7 @@
 import { Cards } from "@/components/sections/Cards";
 import { Cursor } from "@/components/sections/Cursor";
 import { Hero } from "@/components/sections/Hero";
+import { Nav } from "@/components/sections/Nav";
 import { useState } from "react";
 
 
@@ -12,6 +13,7 @@ export default function Home() {
       {/* <Cursor /> */}
       {/* patience my friend */}
       <section className="justify-center relative min-h-screen ">
+        <Nav/>
       <Hero/>
       <Cards/>
       </section>
