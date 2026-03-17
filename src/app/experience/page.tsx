@@ -2,6 +2,8 @@
 import { FadeIn, Heading, Section } from "@/components/sections/primitives";
 import { desc, div } from "framer-motion/client";
 import { title } from "process";
+import Link from "next/link";
+import { Grid } from "@/components/sections/Grid";
 
 // organize this data in a better way into different categories
 
@@ -16,6 +18,7 @@ const exp = [
                 period: "Apr 2024 - Jul 2024 · 3 months",
                 desc: "Mentored a high school student in a 12 week research commitment, guiding them through the process of developing and executing an independent research project in the field of human-computer interaction. Provided regular feedback and support to help them refine their research question, design their study, and analyze their results.",
                 tags: ["Mentorship", "Research", "Technical Guidance"],
+                href: "/experience/research-mentor-5",
             },
             {
                 title: "Python Mentor",
@@ -23,6 +26,7 @@ const exp = [
                 period: "Feb 2024 - Aug 2024 · 6 months",
                 desc: "Mentored 2 batches P15 and P16 of 100+ college students in learning Python programming fundamentals, including variables, data structures, and basic algorithms. Provided one-on-one tutoring sessions and guided them through hands-on coding exercises.",
                 tags: ["Mentorship", "Programming", "Education"],
+                href: "/experience/python-mentor",
             },
             {
                 title: "Research Commitment Mentor Cohort #6",
@@ -30,6 +34,7 @@ const exp = [
                 period: "May 2025 - Jul 2025 · 3 months",
                 desc: "Mentored a group of college students in a 12 week research commitment, guiding them through the process of developing and executing an independent research project in the field of human-computer interaction. Provided regular feedback and support to help them refine their research question, design their study, and analyze their results.",
                 tags: ["Mentorship", "Research", "Technical Guidance"],
+                href: "/experience/research-mentor-6",
             },
         ]
     },
@@ -42,6 +47,7 @@ const exp = [
                 period: "Aug 2024 - Jun 2024 · 3 months",
                 desc: "Collaborated with the team to develop and implement AI algorithms for various applications, including natural language processing and computer vision. Contributed to the design and optimization of machine learning models, and assisted in data preprocessing and analysis tasks.",
                 tags: ["Internship", "AI", "Team work"],
+                href: "/experience/ai-intern-unsway",
             },
         ]
     },
@@ -54,6 +60,7 @@ const exp = [
                 period: "Dec 2022 · 1 week",
                 desc: "Volunteered for the Zero to One Program, organized by Sheryians Coding School at St. Thomas Convent School for High School students, where I provided support in organizing and facilitating learning sessions for high school students. Assisted in coordinating activities and ensuring the smooth execution of the program, which aimed to introduce students to foundational computer and IT skills.",
                 tags: ["Volunteer", "Education", "Community Engagement"],
+                href: "/experience/zero-to-one-volunteer",
             },
             {
                 title: "Student Ambassador",
@@ -61,6 +68,7 @@ const exp = [
                 period: "May 2025 - Aug 2025 · 4 months",
                 desc: "Represented the brand as a student ambassador, promoting Oswaal Books' products and services to fellow students. Organized and participated in various marketing campaigns and events to increase brand awareness and student engagement.",
                 tags: ["Ambassador", "Marketing", "Student Engagement"],
+                href: "/experience/student-ambassador-oswaal",
             },
         ]
     },
@@ -73,6 +81,7 @@ const exp = [
                 period: "Jun 2025 - Present",
                 desc: "Active contributor across two long running community programs FlavorTown and Summer Of Making. Submitted over 2,000 reviews and participated in community activities supporting builders, learners, and makers. Proud to have supported people at early stages of their journeys.",
                 tags: ["Community", "Reviews", "Hack Club"],
+                href: "/experience/shipwright-reviewer",
             },
             {
                 title: "YSWS Reviewer",
@@ -80,6 +89,7 @@ const exp = [
                 period: "Jun 2025 - Present",
                 desc: "Reviewed over 1000 submissions for FlavorTown and Summer Of Making programs, which involved doing internal checks and submitting them to the Unifed database. This role was crucial in maintaining the quality and integrity of the programs, ensuring that submissions met the required standards.",
                 tags: ["Community", "Reviews", "Hack Club"],
+                href: "/experience/ysws-reviewer",
             },
         ]
     },
@@ -97,13 +107,15 @@ const exp = [
             {
                 title: "Optimize SideQuest - FlavorTown Organizer",
                 org: "Hack Club",
-                period: "Jul 2025 - Nov 2025",
+                period: "Mar 2026 - Present",
                 desc: "Organized and managed the Optimize SideQuest event as part of the Hack Club's FlavorTown. This involved coordinating with participants, reviewing the projects and ensuring a smooth execution of the event.",
                 tags: ["Community", "Events", "Hack Club"],
+                href: "/experience/optimize-sidequest",
             }
         ]
     }
 ]
+
 
 
 
@@ -115,15 +127,42 @@ function Experience({   title,
   period,
   desc,
   tags,
+  href,
 }: {
   title: string;
   org: string;
   period: string;
   desc: string;
   tags: string[];
+  href?: string;
 }) {
     // since when did nextjs gave types to props errors without me asking for it :sob:
-     return (
+    if (href) {
+      return (
+        <Link href={href} className="block group hover:opacity-75 transition-opacity">
+          <div className="flex flex-col sm:flex-row gap-6 py-8 border-b border-cream-200 last:border-0">
+            <div className="sm:w-56 flex-shrink-0">
+              <p className="text-xs font-sans uppercase tracking-widest text-gold">{period}</p>
+              <h3 className="mt-2 font-serif text-xl font-medium text-ink">{title}</h3>
+              <p className="mt-1 text-sm font-sans text-ink-muted">{org}</p>
+            </div>
+            <div className="flex-1">
+              <p className="text-sm font-sans font-light text-ink-soft leading-relaxed">{desc}</p>
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {tags.map((t) => (
+                  <span key={t} className="tag text-[10px] py-0.5 px-2.5">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Link>
+      );
+    }
+    
+    return (
+    <div className="block group hover:opacity-75 transition-opacity">
     <div className="flex flex-col sm:flex-row gap-6 py-8 border-b border-cream-200 last:border-0">
       <div className="sm:w-56 flex-shrink-0">
         <p className="text-xs font-sans uppercase tracking-widest text-gold">{period}</p>
@@ -141,6 +180,7 @@ function Experience({   title,
         </div>
       </div>
     </div>
+    </div>
   );
     }
 
@@ -151,8 +191,10 @@ function Experience({   title,
 
 export default function ExpPage() {
     return(
-       <div className="page-enter pt-16">
-        <Section>
+       <div className="page-enter relative w-full overflow-hidden">
+        <section className="relative min-h-screen pt-16">
+          <Grid className="absolute inset-0" />
+          <Section className="relative z-10">
 
         
         {/* <div className="max-w-2xl mx-auto px-6 py-20">
@@ -178,7 +220,7 @@ export default function ExpPage() {
                 <span className="flex-1 h-px bg-cream-200"/>
                         </div>
 
-                <div className="rounded-2xl border border-cream-200 bg-cream-50 px-6 py-4 overflow-hidden">
+                <div className="rounded-2xl border border-cream-200 bg-offwhite shadow-[0_10px_30px_rgba(26,26,26,0.04)] px-6 py-4 overflow-hidden">
 {items.map((k) => (
     <Experience key={k.title} {...k} />
 ))}
@@ -187,6 +229,8 @@ export default function ExpPage() {
 </FadeIn>
                 ))}            
             </div>
-</Section>            </div>
+          </Section>
+        </section>
+      </div>
     )
 }
