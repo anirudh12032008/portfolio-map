@@ -13,7 +13,6 @@ export default function Home() {
       {/* <Cursor /> */}
       {/* patience my friend */}
       <section className="justify-center relative min-h-screen ">
-        <Nav/>
       <Hero/>
       <Cards/>
       </section>

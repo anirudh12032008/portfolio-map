@@ -4,6 +4,7 @@ import "../styles/global.css";
 import "./globals.css"
 import { Cursor } from "@/components/sections/Cursor";
 import { Grid } from "@/components/sections/Grid";
+import { Nav } from "@/components/sections/Nav";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="relative min-h-screen w-full overflow-hidden">
+          <Nav />
           <Grid className="absolute inset-0" />
           <Cursor />
           <div className="relative z-10">{children}</div>

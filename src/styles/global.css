@@ -84,7 +84,7 @@ letter-spacing: -0.01em;
 
     
 
-
+/* 
 @media (hover: hover) and (pointer: fine) {
   :root,
   body,
@@ -96,7 +96,7 @@ letter-spacing: -0.01em;
   textarea {
     cursor: none;
   }
-}
+} */
 
 /* thanks copilot for being quick */
 .tag {
