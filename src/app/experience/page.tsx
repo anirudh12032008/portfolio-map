@@ -3,7 +3,6 @@ import { FadeIn, Heading, Section } from "@/components/sections/primitives";
 import { desc, div } from "framer-motion/client";
 import { title } from "process";
 import Link from "next/link";
-import { Grid } from "@/components/sections/Grid";
 
 // organize this data in a better way into different categories
 
@@ -193,7 +192,6 @@ export default function ExpPage() {
     return(
        <div className="page-enter relative w-full overflow-hidden">
         <section className="relative min-h-screen pt-16">
-          <Grid className="absolute inset-0" />
           <Section className="relative z-10">
 
         

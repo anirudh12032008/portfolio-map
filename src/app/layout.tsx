@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/global.css";
 import "./globals.css"
 import { Cursor } from "@/components/sections/Cursor";
+import { Grid } from "@/components/sections/Grid";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -28,15 +29,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        
-        <Cursor/>
-        {children}
-      </body>
-       {/* <div className="relative min-h-screen w-full">
+        <div className="relative min-h-screen w-full overflow-hidden">
+          <Grid className="absolute inset-0" />
           <Cursor />
-          <Grid className="fixed inset-0" />
-          {children}
-        </div> */}
+          <div className="relative z-10">{children}</div>
+        </div>
+      </body>
     </html>
   );
 }

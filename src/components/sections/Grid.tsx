@@ -108,10 +108,10 @@ useEffect(() => {
 
 
         const resize = () => {
-            const sec = canavas.closest('section');
-            if (!sec) return;
-            canavas.width = sec.clientWidth;
-            canavas.height = sec.clientHeight;
+            const parent = canavas.parentElement;
+            if (!parent) return;
+            canavas.width = parent.clientWidth;
+            canavas.height = Math.max(parent.clientHeight, parent.scrollHeight);
         };
                 // const force = Math.max(-RADIUS, Math.min(RADIUS, STRENGTH * (1 - d / RADIUS)));
                 // const angle = Math.atan2(dy, dx);
@@ -120,6 +120,8 @@ useEffect(() => {
 
                 resize();
                 window.addEventListener("resize", resize);
+                const observer = new ResizeObserver(resize);
+                if (canavas.parentElement) observer.observe(canavas.parentElement);
                 anim.current = requestAnimationFrame(draw);
 
                 const onMove = (e: MouseEvent) => {
@@ -138,6 +140,7 @@ useEffect(() => {
                 return () => {
                     window.removeEventListener("resize", resize);
                     window.removeEventListener("mousemove", onMove);
+                    observer.disconnect();
                     cancelAnimationFrame(anim.current);
                 };
 }, [istouch, draw]);
