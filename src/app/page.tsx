@@ -1,5 +1,6 @@
 "use client";
 
+import { Cards } from "@/components/sections/Cards";
 import { Cursor } from "@/components/sections/Cursor";
 import { Grid } from "@/components/sections/Grid";
 import { Hero } from "@/components/sections/Hero";
@@ -14,6 +15,7 @@ export default function Home() {
       <section className="justify-center relative min-h-screen ">
 
       <Grid className="absolute inset-0" /> 
+      <Cards/>
       <Hero/>
       </section>
 
