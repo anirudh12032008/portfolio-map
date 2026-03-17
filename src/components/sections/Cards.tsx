@@ -12,11 +12,11 @@ const cards = [
 
     {
         href: "/projects",
-        sr:0,
+        sr:1,
         title: "Projects",
         desc: "Software, Hardware, and creative code stuff. Explore what I've built",
         // someone help me find this dot :sob:
-        color: "bg-gold/10 text-gold",
+        color: "bg-gold/10 text-gold border-gold/25",
         tag: "Software · Hardware · Creative Code",
     },
 
@@ -25,7 +25,7 @@ const cards = [
         sr: 2,
         title: "Experience",
         desc: "Mentorships, interships, community contributions and initiative I've been part of",
-        color: "bg-blue/10 text-blue",
+        color: "bg-navy/10 text-navy border-navy/25",
         tag: "Mentorship · Community · Initiatives",
 
 
@@ -37,7 +37,7 @@ const cards = [
         sr: 3,
         title: "Timeline",
         desc: "A living record of the moments that shaped how I think",
-        color: "bg-green/10 text-green",
+        color: "bg-ink-soft/10 text-ink-soft border-ink-soft/25",
         tag: "Milestones · Journey",
     },   
 {
@@ -46,7 +46,7 @@ const cards = [
     sr: 4,
     title: "Life Beyond Code",
     desc: "Things that color my world beyond the code and keep me curiously alive and grounded :)",
-    color: "bg-pink/10 text-pink",
+    color: "bg-ink-muted/10 text-ink-muted border-ink-muted/25",
     tag: "Passions · Sketching · Music · Poetry",
 }
 ]
@@ -80,7 +80,7 @@ export function Cards(){
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
-                className="text-3xl font-bold text-center mb-12"
+                className="text-3xl font-bold text-center mb-12 text-ink"
             >
                 Explore
             </motion.h2>
@@ -99,15 +99,15 @@ export function Cards(){
                     <motion.div key={c.href} variants={item}> 
                     
                     <Link href={c.href} className="group block h-full">
-                    <div className={`relative h-full rounded-2xl border border-cream-200 ${c.color} p-6 transistion-transform duration-200 hover:border-cream-300 hover:-translate-y-1`}>
-<span className="text-xs font-sans text-ink-faint tabular-nums"> {c.sr} </span>
+                    <div className="relative h-full rounded-2xl border border-border bg-surface p-6 transition-transform duration-200 hover:border-navy hover:-translate-y-1">
+<span className={`inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-sans tabular-nums ${c.color}`}> {c.sr} </span>
 
 
 <h3 className="mt-3 font-serif text-2xl font-medium text-ink group-hover:text-navy transition-colors duration-200"> {c.title} </h3>
-<p className="text-ink-faint group-hover:text-ink transition-colors duration-200"> {c.desc} </p>
-<p className="mt-5 text-[10px] uppercase tracking-widest text-ink-faint font-sans"> {c.tag} </p>
+<p className="text-ink-muted group-hover:text-ink transition-colors duration-200"> {c.desc} </p>
+<p className="mt-5 text-[10px] uppercase tracking-widest text-ink-muted font-sans"> {c.tag} </p>
 
-<div className="absolute bottom-6 right-6 w-8 h-8 rounded-full border border-cream-300 flex items-center justify-center text-ink-faint group-hover:border-navy group-hover:text-navy transition-colors duration-200">
+<div className="absolute bottom-6 right-6 w-8 h-8 rounded-full border border-border flex items-center justify-center text-ink-muted group-hover:border-navy group-hover:text-navy transition-colors duration-200">
     {/* <span className="absolute -bottom-2 -right-2 w-5 h-5 bg-cream-200 rounded-full group-hover:bg-navy transition-colors duration-200">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3 h-3 text-white">
   <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
