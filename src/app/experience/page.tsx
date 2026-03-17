@@ -218,7 +218,7 @@ export default function ExpPage() {
                 <span className="flex-1 h-px bg-cream-200"/>
                         </div>
 
-                <div className="rounded-2xl border border-cream-200 bg-offwhite shadow-[0_10px_30px_rgba(26,26,26,0.04)] px-6 py-4 overflow-hidden">
+                <div className="rounded-2xl border border-cream-200 hover:bg-offwhite/67 bg-offwhite/40 backdrop-blur-[1px]  shadow-[0_10px_30px_rgba(26,26,26,0.04)] px-6 py-4 overflow-hidden">
 {items.map((k) => (
     <Experience key={k.title} {...k} />
 ))}

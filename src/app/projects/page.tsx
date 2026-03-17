@@ -151,29 +151,33 @@ export default function Projects() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="grid grid-cols-1 md:grid-cols-2 gap-6"
-
-
-
-
-
-
-            >
+                className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
 
                     {fil.map((p, i) => (
                         <FadeIn key={p.title} delay={i * 0.1}>
-                            <div className="group relative rounded-2xl border border-cream-200 bg-cream-50 p-7 transition-all duration-300 hoer:shadow-card-lg hover:-translate-y-1 hover:border-cream-300 flex flex-col h-full">
-                                <span>{p.year}</span>
-                                <h3 className="text-xl font-bold text-gray-800">{p.title}</h3>
-                                <p className="text-gray-600 mt-2">{p.description}</p>
-                                <a href={p.github} target="_blank" rel="noopener noreferrer" className="mt-4 text-amber-500 hover:text-amber-600 flex items-center">
+                            <div data-cursor className="group relative z-20 text-gold rounded-2xl border border-cream-200 bg-offwhite/40 backdrop-blur-[1px] p-7 transition-all duration-300 hover:shadow-[0_18px_36px_rgba(30,58,95,0.14)] hover:bg-offwhite/90 hover:-translate-y-1 hover:border-cream-300 flex flex-col h-full">
+                                <span className="text-xs font-sans text-ink-faint tabular-nums">{p.year}</span>
+                                {/* we don;t event have camel case func :((((( */}
+                            
+                                <h3 className="mt-2 font-serif text-2xl font-medium text-ink group-hover:text-navy transition-colors">{p.title.charAt(0).toUpperCase() + p.title.slice(1)}</h3> 
+                                <p className="mt-2 font-sans text-ink-muted font-light leading-relaxed flex-1">{p.description}</p>
+
+
+                                <div className="mt-5 flex items-center ">
+                                    {p.tags.map((tag) => (
+                                        <span key={tag} className="tag px-2 py-1 ">
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                                <a href={p.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm font-sans text-ink-muted hover:text-navy transition-colors mt-4 duration-200 flex-shrink-0 ml-3">
                                     <GH />
-                                    <span className="ml-2">View on GitHub</span>
+                                    <span className="">View</span>
                                 </a>
                             </div>
                         </FadeIn>
-                    )
+                    ))}
 
 
 
