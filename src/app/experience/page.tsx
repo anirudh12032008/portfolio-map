@@ -1,43 +1,22 @@
 "use client"
 import { FadeIn, Heading, Section } from "@/components/sections/primitives";
 import { desc, div } from "framer-motion/client";
+import { title } from "process";
+
+// organize this data in a better way into different categories
+
 
 const exp = [
     {
         category: "Mentorship",
         items: [
-            // This certificate is awarded to
-// Anirudh Sahu
-
-// in recognition of his valuable contribution to the successful organization and support of the Zero to One Program conducted by Sheriyans Coding School at St. Thomas Convent School from 26 December 2022 to 31 December 2022.
-
-// The program focused on introducing high school students to foundational computer and IT skills, and his support helped ensure the smooth execution of the learning sessions and activities during the program.
-            // create another exoerience card for the above contribution for the zero to one program
-            {
-                title: "Zero to One Program Volunteer",
-                org: "Sheryians Coding School",
-                period: "Dec 2022 · 1 week",
-                desc: "Volunteered for the Zero to One Program, organized by Sheryians Coding School at St. Thomas Convent School for High School students, where I provided support in organizing and facilitating learning sessions for high school students. Assisted in coordinating activities and ensuring the smooth execution of the program, which aimed to introduce students to foundational computer and IT skills.",
-                tags: ["Volunteer", "Education", "Community Engagement"],
-            },
-{ 
-                title: "Artificial Intelligence Intern",
-                org: "Unsway",
-                period: "Aug 2024 - Jun 2024 · 3 months",
-                desc: "Collaborated with the team to develop and implement AI algorithms for various applications, including natural language processing and computer vision. Contributed to the design and optimization of machine learning models, and assisted in data preprocessing and analysis tasks.",
-                tags: ["Internship", "Team work"],
-            },
             {
                 title: "Research Commitment Mentor Cohort #5",
                 org: "Incognito Blueprints",
                 period: "Apr 2024 - Jul 2024 · 3 months",
-                // thanks copilot lol
-                
-                
                 desc: "Mentored a high school student in a 12 week research commitment, guiding them through the process of developing and executing an independent research project in the field of human-computer interaction. Provided regular feedback and support to help them refine their research question, design their study, and analyze their results.",
                 tags: ["Mentorship", "Research", "Technical Guidance"],
             },
-
             {
                 title: "Python Mentor",
                 org: "Sheryians Coding School",
@@ -52,12 +31,75 @@ const exp = [
                 desc: "Mentored a group of college students in a 12 week research commitment, guiding them through the process of developing and executing an independent research project in the field of human-computer interaction. Provided regular feedback and support to help them refine their research question, design their study, and analyze their results.",
                 tags: ["Mentorship", "Research", "Technical Guidance"],
             },
+        ]
+    },
+    {
+        category: "Internship",
+        items: [
+            {
+                title: "Artificial Intelligence Intern",
+                org: "Unsway",
+                period: "Aug 2024 - Jun 2024 · 3 months",
+                desc: "Collaborated with the team to develop and implement AI algorithms for various applications, including natural language processing and computer vision. Contributed to the design and optimization of machine learning models, and assisted in data preprocessing and analysis tasks.",
+                tags: ["Internship", "AI", "Team work"],
+            },
+        ]
+    },
+    {
+        category: "Volunteer & Community Engagement",
+        items: [
+            {
+                title: "Zero to One Program Volunteer",
+                org: "Sheryians Coding School",
+                period: "Dec 2022 · 1 week",
+                desc: "Volunteered for the Zero to One Program, organized by Sheryians Coding School at St. Thomas Convent School for High School students, where I provided support in organizing and facilitating learning sessions for high school students. Assisted in coordinating activities and ensuring the smooth execution of the program, which aimed to introduce students to foundational computer and IT skills.",
+                tags: ["Volunteer", "Education", "Community Engagement"],
+            },
             {
                 title: "Student Ambassador",
                 org: "Oswaal Books",
                 period: "May 2025 - Aug 2025 · 4 months",
                 desc: "Represented the brand as a student ambassador, promoting Oswaal Books' products and services to fellow students. Organized and participated in various marketing campaigns and events to increase brand awareness and student engagement.",
                 tags: ["Ambassador", "Marketing", "Student Engagement"],
+            },
+        ]
+    },
+    {
+        category: "Community Contributions",
+        items: [
+            {
+                title: "Shipwright (Reviewer)",
+                org: "Hack Club",
+                period: "Jun 2025 - Present",
+                desc: "Active contributor across two long running community programs FlavorTown and Summer Of Making. Submitted over 2,000 reviews and participated in community activities supporting builders, learners, and makers. Proud to have supported people at early stages of their journeys.",
+                tags: ["Community", "Reviews", "Hack Club"],
+            },
+            {
+                title: "YSWS Reviewer",
+                org: "Hack Club",
+                period: "Jun 2025 - Present",
+                desc: "Reviewed over 1000 submissions for FlavorTown and Summer Of Making programs, which involved doing internal checks and submitting them to the Unifed database. This role was crucial in maintaining the quality and integrity of the programs, ensuring that submissions met the required standards.",
+                tags: ["Community", "Reviews", "Hack Club"],
+            },
+        ]
+    },
+    {
+        category: "Event Organization",
+        items: [
+            {
+                title: "PORTAL VR - YSWS Organizer",
+                org: "Hack Club",
+                period: "Jul 2025 - Nov 2025",
+                desc: "Organized PORTAL VR event as part of the Hack Club's You Ship We Ship initiative. This involved coordinating with participants, managing fullfilments, reviewing the projects, organizing workshops and ensuring a smooth execution of the event. Total 122hr ( 12.2 Weighted Grants ) of work was put in by the participants in their final projects",
+                tags: ["Community", "Events", "Hack Club"],
+                href: "http://portalvr.hackclub.com/",
+            },
+            {
+                title: "Optimize SideQuest - FlavorTown Organizer",
+                org: "Hack Club",
+                period: "Jul 2025 - Nov 2025",
+                desc: "Organized and managed the Optimize SideQuest event as part of the Hack Club's FlavorTown. This involved coordinating with participants, reviewing the projects and ensuring a smooth execution of the event.",
+                tags: ["Community", "Events", "Hack Club"],
             }
         ]
     }
@@ -81,20 +123,25 @@ function Experience({   title,
   tags: string[];
 }) {
     // since when did nextjs gave types to props errors without me asking for it :sob:
-    return (
-
-        <div>
-<div className="flex flex-col sm:flex-row gap-6 py-8 border-b border-cream-200 last:border-0">
-    <div className="sm:w-56 flex-shrink-0"> 
-<p className="text-xs font-sans uppercase tracking-widest text-gold mb-2"> {period} </p>
-<h3 className="text-lg font-bold font-sherif text-cream-800">{title}</h3>
-    <p className="text-cream-600">{org}</p>
-    </div>
-
-</div>
-
+     return (
+    <div className="flex flex-col sm:flex-row gap-6 py-8 border-b border-cream-200 last:border-0">
+      <div className="sm:w-56 flex-shrink-0">
+        <p className="text-xs font-sans uppercase tracking-widest text-gold">{period}</p>
+        <h3 className="mt-2 font-serif text-xl font-medium text-ink">{title}</h3>
+        <p className="mt-1 text-sm font-sans text-ink-muted">{org}</p>
+      </div>
+      <div className="flex-1">
+        <p className="text-sm font-sans font-light text-ink-soft leading-relaxed">{desc}</p>
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {tags.map((t) => (
+            <span key={t} className="tag text-[10px] py-0.5 px-2.5">
+              {t}
+            </span>
+          ))}
         </div>
-    )
+      </div>
+    </div>
+  );
     }
 
 
