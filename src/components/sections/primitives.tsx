@@ -4,6 +4,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react"; 
 import Link from "next/link";
+import clsx from "clsx";
 
 
 
@@ -46,3 +47,29 @@ export function FadeIn({
 
 
 
+
+
+
+export function Section({children, className="", id,}: {children: React.ReactNode; className?: string; id: string   }) {
+    return (
+        <section id={id} className={`max-w-5xl mx-auto px-6 py-16 md:py-24 ${className}`}>
+            {children}
+        </section>
+    );
+}
+
+
+
+
+export function Heading({eye, title, desc, center=false}: {eye?: string; title: string; desc?: string; center?: boolean}) {
+    return (
+        <FadeIn className={`center ? "text-center" : "" `}>
+            <div className={clsx("mb-10 md:mb-14", center && "flex flex-col items-center")}>
+                {eye && <span className="text-xs inline-block font-sans font-medium uppercase tracking-widest text-gold mb-3">{eye}</span>}
+                
+                <h2 className="text-display font-serif text-display-lg text-ink">{title}</h2>
+                {desc && <p className="text-base text-ink-muted font-light leading-relaxed max-w-xl mt-4">{desc}</p>}
+            </div>
+        </FadeIn>
+    )
+}
