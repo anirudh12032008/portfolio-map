@@ -20,33 +20,33 @@ import "react-vertical-timeline-component/style.min.css";
 const events = [
   {
     date: "2021",
-    title: "First Program & Science Fair",
+    title: "First Program + Science Fair",
     subtitle: "School Lab / QBASIC",
-    description: "Built a CLI quiz program in QBASIC and presented it to 50+ visitors at a school science fair, sparking a passion for building systems.",
+    description: "Built a simple quiz app in QBASIC and showed it at our school science fair; that was the moment coding became serious for me.",
   },
   {
     date: "2020 - 2021",
-    title: "Game Development Exploration",
+    title: "Early Game Dev Phase",
     subtitle: "Unity & C#",
-    description: "Self-taught Unity and C# basics to create a 3D playable prototype with raycasting mechanics, eventually exporting it as an Android APK.",
+    description: "Learned Unity and C# by making a small 3D prototype and shipping an Android APK just for fun.",
   },
   {
     date: "Early 2022",
-    title: "Web Development Transition",
+    title: "Shift to Web Development",
     subtitle: "HTML, CSS, & JavaScript",
-    description: "Pivoted from heavy Android tooling to web development, building the 'How Was Your Day?' project using Google Sheets as a clever database workaround.",
+    description: "Moved from Android experiments to web and built 'How Was Your Day?' using Google Sheets as a makeshift database.",
   },
   {
     date: "May 2022",
-    title: "First Open Source Recognition",
+    title: "First Open Source Win",
     subtitle: "Strapi Plugin Development",
-    description: "Built a to-do list plugin for Strapi's ecosystem, receiving my first developer community recognition and an official Strapi hoodie.",
+    description: "Built a to-do plugin for Strapi and got my first bit of community recognition (and a Strapi hoodie).",
   },
   {
     date: "Late 2022",
-    title: "First Real Client Opportunity",
+    title: "First Client Attempt",
     subtitle: "E-commerce Development",
-    description: "Attempted an 80% complete e-commerce platform for a neighbor, learning the complexities of admin dashboards and payment gateway verification.",
+    description: "Tried building an e-commerce site for a local business and learned hard lessons about admin flows and payment setup.",
   },
   {
     date: "Dec 2022",
@@ -56,27 +56,27 @@ const events = [
   },
   {
     date: "2023",
-    title: "Full-Stack Mastery",
+    title: "Deeper Full-Stack Learning",
     subtitle: "Next.js & Python",
-    description: "Completed a production-ready e-commerce site with Stripe integration and explored Python for web scraping (Selenium) and data analysis.",
+    description: "Built a stronger Next.js project with Stripe and used Python for scraping and basic data work.",
   },
   {
     date: "2023 - 2024",
-    title: "International Research Mentor",
+    title: "Research Mentoring",
     subtitle: "Incognito Blueprint",
-    description: "Guided global high school cohorts through research methodology and documentation, leading to published academic conference papers.",
+    description: "Mentored high school students through research planning, writing, and final presentation work.",
   },
   {
     date: "2024 - 2025",
-    title: "Hardware & Robotics Engineering",
+    title: "Hardware Build Phase",
     subtitle: "Hack Club / Embedded Systems",
-    description: "Engineered a wireless rover with live camera streaming and designed custom ESP32 PCBs and a DIY ECG monitoring device.",
+    description: "Built things like a wireless rover, ESP32 boards, and a DIY ECG prototype.",
   },
   {
     date: "2025",
-    title: "Portal VR YSWS ",
+    title: "Portal VR (YSWS)",
     subtitle: "Hack Club You Ship We Ship",
-    description: "Designed, pitched, and ran an official sponsored VR development program, mentoring students in A Frame and Virtual Reality and managing reviews alongwith fulfillment.",
+    description: "Pitched and ran a VR-focused YSWS program, mentored students, and handled reviews and fulfillment.",
   },
 ];
 
@@ -87,7 +87,7 @@ export default function Timeline() {
         <Heading
           eye="Journey"
           title="Timeline"
-          desc="A quick walkthrough of key milestones, programs, and community work."
+          desc="Key moments that shaped how I build, learn, and work with communities."
         />
 
         <VerticalTimeline lineColor="var(--border)">
