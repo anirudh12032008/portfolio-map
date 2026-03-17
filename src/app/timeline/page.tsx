@@ -4,114 +4,121 @@
 
 
 
-// import { VerticalEventTimeline } from './components/VerticalEventTimeline'; // Adjust path
-// import { events } from './data/events'; // Adjust path
-// function MyTimelinePage() {
-//   // Similar assumption about data handling as above.
-//   return <VerticalEventTimeline />;
-// }
+// help taken from external library!!!!!!!!!!!
 
-import { Camera } from 'lucide-react';
+import { Circle } from "lucide-react";
+import { Heading, Section } from "@/components/sections/primitives";
+import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
 
 
-import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
+
+
+
+
+
+const events = [
+  {
+    date: "2021",
+    title: "First Program & Science Fair",
+    subtitle: "School Lab / QBASIC",
+    description: "Built a CLI quiz program in QBASIC and presented it to 50+ visitors at a school science fair, sparking a passion for building systems.",
+  },
+  {
+    date: "2020 - 2021",
+    title: "Game Development Exploration",
+    subtitle: "Unity & C#",
+    description: "Self-taught Unity and C# basics to create a 3D playable prototype with raycasting mechanics, eventually exporting it as an Android APK.",
+  },
+  {
+    date: "Early 2022",
+    title: "Web Development Transition",
+    subtitle: "HTML, CSS, & JavaScript",
+    description: "Pivoted from heavy Android tooling to web development, building the 'How Was Your Day?' project using Google Sheets as a clever database workaround.",
+  },
+  {
+    date: "May 2022",
+    title: "First Open Source Recognition",
+    subtitle: "Strapi Plugin Development",
+    description: "Built a to-do list plugin for Strapi's ecosystem, receiving my first developer community recognition and an official Strapi hoodie.",
+  },
+  {
+    date: "Late 2022",
+    title: "First Real Client Opportunity",
+    subtitle: "E-commerce Development",
+    description: "Attempted an 80% complete e-commerce platform for a neighbor, learning the complexities of admin dashboards and payment gateway verification.",
+  },
+  {
+    date: "Dec 2022",
+    title: "Zero to One Program Volunteer",
+    subtitle: "Sheryians Coding School",
+    description: "Supported high school learning sessions and program operations for foundational IT education.",
+  },
+  {
+    date: "2023",
+    title: "Full-Stack Mastery",
+    subtitle: "Next.js & Python",
+    description: "Completed a production-ready e-commerce site with Stripe integration and explored Python for web scraping (Selenium) and data analysis.",
+  },
+  {
+    date: "2023 - 2024",
+    title: "International Research Mentor",
+    subtitle: "Incognito Blueprint",
+    description: "Guided global high school cohorts through research methodology and documentation, leading to published academic conference papers.",
+  },
+  {
+    date: "2024 - 2025",
+    title: "Hardware & Robotics Engineering",
+    subtitle: "Hack Club / Embedded Systems",
+    description: "Engineered a wireless rover with live camera streaming and designed custom ESP32 PCBs and a DIY ECG monitoring device.",
+  },
+  {
+    date: "2025",
+    title: "Portal VR YSWS ",
+    subtitle: "Hack Club You Ship We Ship",
+    description: "Designed, pitched, and ran an official sponsored VR development program, mentoring students in A Frame and Virtual Reality and managing reviews alongwith fulfillment.",
+  },
+];
 
 export default function Timeline() {
-    return (
+  return (
+    <div className="page-enter pt-16">
+      <Section>
+        <Heading
+          eye="Journey"
+          title="Timeline"
+          desc="A quick walkthrough of key milestones, programs, and community work."
+        />
 
-<VerticalTimeline>
-  <VerticalTimelineElement
-    className="vertical-timeline-element--work"
-    contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-    contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-    date="2011 - present"
-    iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-    icon={<Camera color="red" size={48} />}
-  >
-    <h3 className="vertical-timeline-element-title">Creative Director</h3>
-    <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-    <p>
-      Creative Direction, User Experience, Visual Design, Project Management, Team Leading
-    </p>
-  </VerticalTimelineElement>
-  <VerticalTimelineElement
-    className="vertical-timeline-element--work"
-    date="2010 - 2011"
-    iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-
-  >
-    <h3 className="vertical-timeline-element-title">Art Director</h3>
-    <h4 className="vertical-timeline-element-subtitle">San Francisco, CA</h4>
-    <p>
-      Creative Direction, User Experience, Visual Design, SEO, Online Marketing
-    </p>
-  </VerticalTimelineElement>
-  <VerticalTimelineElement
-    className="vertical-timeline-element--work"
-    date="2008 - 2010"
-    iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-
-  >
-    <h3 className="vertical-timeline-element-title">Web Designer</h3>
-    <h4 className="vertical-timeline-element-subtitle">Los Angeles, CA</h4>
-    <p>
-      User Experience, Visual Design
-    </p>
-  </VerticalTimelineElement>
-  <VerticalTimelineElement
-    className="vertical-timeline-element--work"
-    date="2006 - 2008"
-    iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-
-  >
-    <h3 className="vertical-timeline-element-title">Web Designer</h3>
-    <h4 className="vertical-timeline-element-subtitle">San Francisco, CA</h4>
-    <p>
-      User Experience, Visual Design
-    </p>
-  </VerticalTimelineElement>
-  <VerticalTimelineElement
-    className="vertical-timeline-element--education"
-    date="April 2013"
-    iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
-
-  >
-    <h3 className="vertical-timeline-element-title">Content Marketing for Web, Mobile and Social Media</h3>
-    <h4 className="vertical-timeline-element-subtitle">Online Course</h4>
-    <p>
-      Strategy, Social Media
-    </p>
-  </VerticalTimelineElement>
-  <VerticalTimelineElement
-    className="vertical-timeline-element--education"
-    date="November 2012"
-    iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
-
-  >
-    <h3 className="vertical-timeline-element-title">Agile Development Scrum Master</h3>
-    <h4 className="vertical-timeline-element-subtitle">Certification</h4>
-    <p>
-      Creative Direction, User Experience, Visual Design
-    </p>
-  </VerticalTimelineElement>
-  <VerticalTimelineElement
-    className="vertical-timeline-element--education"
-    date="2002 - 2006"
-    iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
-
-  >
-    <h3 className="vertical-timeline-element-title">Bachelor of Science in Interactive Digital Media Visual Imaging</h3>
-    <h4 className="vertical-timeline-element-subtitle">Bachelor Degree</h4>
-    <p>
-      Creative Direction, Visual Design
-    </p>
-  </VerticalTimelineElement>
-  <VerticalTimelineElement
-    iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
-
-  />
-</VerticalTimeline>
-
-
-    )}
+        <VerticalTimeline lineColor="var(--border)">
+          {events.map((event) => (
+            <VerticalTimelineElement
+              key={`${event.date}-${event.title}`}
+              date={event.date}
+              dateClassName="!text-ink-muted !font-sans"
+              iconStyle={{
+                background: "var(--offwhite)",
+                color: "var(--navy)",
+                border: "1px solid var(--border)",
+              }}
+              contentStyle={{
+                background: "rgba(248, 246, 241, 0.78)",
+                color: "var(--ink)",
+                border: "1px solid var(--border)",
+                borderRadius: "1rem",
+                boxShadow: "0 10px 30px rgba(26,26,26,0.05)",
+                backdropFilter: "blur(1px)",
+              }}
+              contentArrowStyle={{ borderRight: "7px solid var(--border)" }}
+              icon={<Circle size={18} />}
+            >
+              <h3 className="font-serif text-2xl text-ink">{event.title}</h3>
+              <h4 className="font-sans text-sm text-ink-muted mt-1">{event.subtitle}</h4>
+              <p className="font-sans text-sm text-ink-soft mt-3 leading-relaxed">{event.description}</p>
+            </VerticalTimelineElement>
+          ))}
+        </VerticalTimeline>
+      </Section>
+    </div>
+  );
+}
