@@ -206,8 +206,19 @@ export default function ExpPage() {
 
 <Heading eye="Background" title="Experience" desc="Programs I've been part of, communities I've contributed to, and challenges I've helped run." />
 
+ <FadeIn delay={0.2}>
+            <div className="mt-16 text-center max-w-xl mx-auto">
+                <p className="font-serif italic text-xl md:text-2xl text-ink-soft leading-relaxed">
+The best part of every program isn't in the project, its in the people
 
-            <div className="space-y-12">
+                </p>
+                <p className="text-sm text-ink-faint mt-5 font-sans uppercase tracking-widest">
+~ Something I genuienly belive :)
+
+                </p>
+            </div>
+        </FadeIn>
+            <div className="space-y-12 mt-24">
 
 
                 {exp.map(({ category, items }) => (
@@ -231,7 +242,7 @@ export default function ExpPage() {
 {/* <3 */}
 
 
-<FadeIn delay={0.2} >
+{/* <FadeIn delay={0.2} >
 
     <div className="mt-16 rounded-2xl bg-navy/5 border border-navy/15 p-8">
     <p className="font-serif italic text-xl text-navy leading-relaxed">
@@ -242,7 +253,7 @@ export default function ExpPage() {
         ~ Something I genuienly belive :)
     </p>
     </div>
-</FadeIn>
+</FadeIn> */}
 
 
 
