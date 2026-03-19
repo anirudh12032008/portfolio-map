@@ -8,33 +8,33 @@ const inter = [
     {
         title: "Research",
         desc: "The feeling of going into the depths of a topic is one of the best feelings for me :) I have coauthored 2 research papers published in JKLST",
-        link: "/research"
+        link: "/life/research"
     },
     {
         title: "Piano",
         desc: "I started playing piano when I was 10 and have been playing ever since, I also have a YouTube channel where I post piano covers and tutorials <3  ",
         // link: "https://www.youtube.com/watch?v=SmIjL40Wq74&list=PLQoQcohWBikjM_Go585JNFOknpXOOduNZ"
-        link: "/piano"
+        link: "/life/piano"
     },
     {
         title: "Sketching",
         desc: "I love sketching portraits :) I really enjoy just spending the whole day sketching and listening to music, it's really relaxing and fun",
-        link: "/sketching"
+        link: "/life/sketching"
     },
     {
         title: "Cooking",
         desc: "Starting cooking during the pandemic was a game changer for me, now whenever I feel stressed or just want to have some fun I cook :) ",
-        link: "/cooking"
+        link: "/life/cooking"
     },
     {
         title: "Poetry",
         desc: "I find poetry the best way to express my thoughts and to make sense around me, short simple but still very deep",
-        link: "/poetry"
+        link: "/life/poetry"
     },
     {
         title: "Anchoring",
         desc: "I have been doing achoring in my school from 7th grade and I really like being on stage and seeing soo many people listening, I also did anchoring in a relative wedding hehehe",
-        link: "/anchoring"
+        link: "/life/anchoring"
     }
 ]
 
