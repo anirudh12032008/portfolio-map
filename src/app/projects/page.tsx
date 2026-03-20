@@ -4,6 +4,7 @@
 import {act, useState} from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Section, Heading, FadeIn, Tag } from "@/components/sections/primitives";
+import { useRouter } from "next/navigation";
 
 
 
@@ -113,8 +114,16 @@ const GH = () => (
 
 export default function Projects() {
     const [active, setActive] = useState("All");
+  const router = useRouter();
 
     const fil = active === "All" ? projects : projects.filter((p) => p.tags.includes(active));
+
+  const toRouteSlug = (value: string) =>
+    value
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
 
 
 
@@ -156,7 +165,19 @@ export default function Projects() {
 
                     {fil.map((p, i) => (
                         <FadeIn key={p.title} delay={i * 0.1}>
-                            <div data-cursor className="group relative z-20 text-gold rounded-2xl border border-cream-200 bg-offwhite/40 backdrop-blur-[1px] p-7 transition-all duration-300 hover:shadow-[0_18px_36px_rgba(30,58,95,0.14)] hover:bg-offwhite/90 hover:-translate-y-1 hover:border-cream-300 flex flex-col h-full">
+                        <div
+                          data-cursor
+                          role="button"
+                          tabIndex={0}
+                          onClick={() => router.push(`/projects/${toRouteSlug(p.title)}`)}
+                          onKeyDown={(event) => {
+                            if (event.key === "Enter" || event.key === " ") {
+                              event.preventDefault();
+                              router.push(`/projects/${toRouteSlug(p.title)}`);
+                            }
+                          }}
+                          className="group relative z-20 text-gold rounded-2xl border border-cream-200 bg-offwhite/40 backdrop-blur-[1px] p-7 transition-all duration-300 hover:shadow-[0_18px_36px_rgba(30,58,95,0.14)] hover:bg-offwhite/90 hover:-translate-y-1 hover:border-cream-300 flex flex-col h-full cursor-pointer"
+                        >
                                 <span className="text-xs font-sans text-ink-faint tabular-nums">{p.year}</span>
                                 {/* we don;t event have camel case func :((((( */}
                             
@@ -171,7 +192,7 @@ export default function Projects() {
                                         </span>
                                     ))}
                                 </div>
-                                <a href={p.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm font-sans text-ink-muted hover:text-navy transition-colors mt-4 duration-200 flex-shrink-0 ml-3">
+                                <a href={p.github} target="_blank" rel="noopener noreferrer" onClick={(event) => event.stopPropagation()} className="flex items-center gap-1.5 text-sm font-sans text-ink-muted hover:text-navy transition-colors mt-4 duration-200 flex-shrink-0 ml-3">
                                     <GH />
                                     <span className="">View</span>
                                 </a>

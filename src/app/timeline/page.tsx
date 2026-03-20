@@ -10,6 +10,7 @@ import { Circle } from "lucide-react";
 import { Heading, Section } from "@/components/sections/primitives";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import Link from "next/link";
 
 
 
@@ -80,6 +81,14 @@ const events = [
   },
 ];
 
+function toRouteSlug(value: string) {
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export default function Timeline() {
   return (
     <div className="page-enter pt-16">
@@ -115,6 +124,12 @@ export default function Timeline() {
               <h3 className="font-serif text-2xl text-ink">{event.title}</h3>
               <h4 className="font-sans text-sm text-ink-muted mt-1">{event.subtitle}</h4>
               <p className="font-sans text-sm text-ink-soft mt-3 leading-relaxed">{event.description}</p>
+              <Link
+                href={`/timeline/${toRouteSlug(event.title)}`}
+                className="inline-flex items-center gap-2 mt-4 text-sm font-sans text-ink-muted hover:text-navy transition-colors"
+              >
+                Open
+              </Link>
             </VerticalTimelineElement>
           ))}
         </VerticalTimeline>

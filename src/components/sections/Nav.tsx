@@ -7,7 +7,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Moon, Sun } from "lucide-react";
 
 
 
@@ -76,10 +76,26 @@ export function Nav() {
         <button
             type="button"
             onClick={toggleTheme}
-            className="ml-2 rounded-full border border-cream-200 bg-offwhite/70 px-3 py-1 text-xs font-sans text-ink-muted hover:text-ink hover:border-navy transition-colors"
+            aria-pressed={dark}
             aria-label="Toggle dark mode"
+            className="ml-2 inline-flex items-center gap-1 rounded-full border border-cream-200 bg-offwhite/70 p-1.5 text-xs font-sans text-ink-muted transition-all duration-300 hover:border-navy/50 hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy/40"
         >
-            {dark ? "Light" : "Dark"}
+            <span
+                className={`inline-flex h-6 w-6 items-center justify-center rounded-full transition-colors duration-300 ${
+                    dark ? "bg-surface text-ink-muted" : "bg-navy/15 text-navy"
+                }`}
+                aria-hidden="true"
+            >
+                <Sun size={13} />
+            </span>
+            <span
+                className={`inline-flex h-6 w-6 items-center justify-center rounded-full transition-colors duration-300 ${
+                    dark ? "bg-navy/15 text-navy" : "bg-surface text-ink-muted"
+                }`}
+                aria-hidden="true"
+            >
+                <Moon size={13} />
+            </span>
         </button>
 </nav>
 
