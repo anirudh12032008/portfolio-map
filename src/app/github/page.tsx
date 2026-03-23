@@ -5,7 +5,6 @@ import ReactMarkdown from "react-markdown";
 const githubProfile = `
 # Heyyy, I'm Anirudh!
 
-## I'm a 18 yr old from India. I like building and breaking things, sometimes it's hardware, sometimes code, sometimes small communities around ideas
 
 ## I'm a 18 yr old from India. I like trying things :D
 
@@ -39,7 +38,7 @@ just trying to get better at building things that I find interesting and are act
 
 export default function GitHub() {
   return (
-    <div className="min-h-screen w-full px-4 py-8 md:px-8 md:py-16">
+    <div className="min-h-screen w-full px-4 mt-16 py-8 md:px-8 md:py-16">
       <div className="max-w-3xl mx-auto text-ink">
         <ReactMarkdown 
           components={{
