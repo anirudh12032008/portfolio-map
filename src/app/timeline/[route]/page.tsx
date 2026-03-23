@@ -70,6 +70,14 @@ export default async function TimelineRoutePage({
           <span className="text-xs inline-block font-sans font-medium uppercase tracking-widest text-gold mb-3">timeline</span>
           <h1 className="text-display font-serif text-6xl text-ink">{title}</h1>
           <p className="text-base text-ink-muted font-light leading-relaxed max-w-xl mt-4">{description}</p>
+          {frontmatter.gallery?.length ? (
+            <a
+              href="#route-gallery"
+              className="mt-6 inline-flex items-center gap-2 rounded-full border border-cream-300 bg-offwhite/70 px-4 py-2 text-xs font-sans uppercase tracking-wider text-ink transition-colors hover:bg-offwhite"
+            >
+              Gallery
+            </a>
+          ) : null}
         </div>
 
         <article className="max-w-3xl space-y-6 text-ink-soft leading-relaxed">{content}</article>

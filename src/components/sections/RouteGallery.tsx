@@ -56,7 +56,7 @@ export function RouteGallery({ items, section, route }: RouteGalleryProps) {
   }
 
   return (
-    <section className="mt-14 md:mt-16">
+    <section id="route-gallery" className="mt-14 md:mt-16">
       <div className="flex items-center gap-4 mb-5 md:mb-6">
         <h2 className="font-serif text-2xl md:text-3xl text-ink">Gallery</h2>
         <span className="h-px flex-1 bg-cream-200" />
