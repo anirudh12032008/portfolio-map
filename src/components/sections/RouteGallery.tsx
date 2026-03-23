@@ -15,6 +15,30 @@ function isVideoFile(value: string) {
   return [".mp4", ".webm", ".mov", ".m4v", ".ogg"].some((ext) => clean.endsWith(ext))
 }
 
+function isYoutubeUrl(value: string) {
+  return (
+    value.includes("youtube.com") ||
+    value.includes("youtu.be") ||
+    value.includes("youtube-nocookie.com")
+  )
+}
+
+function extractYoutubeId(url: string): string | null {
+  const regexPatterns = [
+    /(?:youtube\.com\/watch\?v=|youtube\.com\/embed\/|youtu\.be\/|youtube-nocookie\.com\/embed\/)([^&\n?#]+)/,
+    /youtube\.com\/watch\?.*v=([^&\n?#]+)/,
+  ]
+
+  for (const regex of regexPatterns) {
+    const match = url.match(regex)
+    if (match && match[1]) {
+      return match[1]
+    }
+  }
+
+  return null
+}
+
 function resolveGalleryPath(value: string, section: RouteGalleryProps["section"], route: string) {
   const trimmed = value.trim()
 
@@ -63,48 +87,77 @@ export function RouteGallery({ items, section, route }: RouteGalleryProps) {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-        {resolvedItems.map((src, index) => (
-          <a
-            key={`${src}-${index}`}
-            href={src}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block"
-          >
-            <figure className="relative overflow-hidden rounded-2xl border border-cream-200 bg-offwhite/50 shadow-[0_10px_30px_rgba(26,26,26,0.06)]">
-              <div className="relative aspect-[4/3] w-full">
-                {isVideoFile(src) ? (
-                  <>
-                    <video
-                      src={src}
-                      controls
-                      playsInline
-                      preload="metadata"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
-                    <span className="absolute top-2 right-2 inline-flex items-center gap-1 rounded-full border border-cream-200 bg-offwhite/90 px-2 py-1 text-[10px] font-sans uppercase tracking-wider text-ink">
-                      <svg viewBox="0 0 24 24" fill="currentColor" className="h-3 w-3" aria-hidden>
-                        <path d="M8 6.82v10.36c0 .57.62.92 1.12.63l8.14-5.18a.74.74 0 0 0 0-1.26L9.12 6.2A.74.74 0 0 0 8 6.82Z" />
-                      </svg>
-                      Video
-                    </span>
-                  </>
-                ) : (
-                  <Image
-                    src={src}
-                    alt={`Gallery image ${index + 1}`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+        {resolvedItems.map((src, index) => {
+          const youtubeId = isYoutubeUrl(src) ? extractYoutubeId(src) : null
+
+          if (youtubeId) {
+            return (
+              <figure key={`${src}-${index}`} className="relative overflow-hidden rounded-2xl border border-cream-200 bg-offwhite/50 shadow-[0_10px_30px_rgba(26,26,26,0.06)]">
+                <div className="relative aspect-video w-full">
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${youtubeId}`}
+                    title={`YouTube video ${index + 1}`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="h-full w-full rounded-lg"
                   />
-                )}
-              </div>
-              <figcaption className="px-3 py-2 text-xs font-sans uppercase tracking-wider text-ink-faint bg-offwhite/80 border-t border-cream-200">
-                {isVideoFile(src) ? "Video" : "Image"} {index + 1}
-              </figcaption>
-            </figure>
-          </a>
-        ))}
+                  <span className="absolute top-2 right-2 inline-flex items-center gap-1 rounded-full border border-cream-200 bg-offwhite/90 px-2 py-1 text-[10px] font-sans uppercase tracking-wider text-ink pointer-events-none">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="h-3 w-3" aria-hidden>
+                      <path d="M8 6.82v10.36c0 .57.62.92 1.12.63l8.14-5.18a.74.74 0 0 0 0-1.26L9.12 6.2A.74.74 0 0 0 8 6.82Z" />
+                    </svg>
+                    YouTube
+                  </span>
+                </div>
+                <figcaption className="px-3 py-2 text-xs font-sans uppercase tracking-wider text-ink-faint bg-offwhite/80 border-t border-cream-200">
+                  Video {index + 1}
+                </figcaption>
+              </figure>
+            )
+          }
+
+          return (
+            <a
+              key={`${src}-${index}`}
+              href={src}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block"
+            >
+              <figure className="relative overflow-hidden rounded-2xl border border-cream-200 bg-offwhite/50 shadow-[0_10px_30px_rgba(26,26,26,0.06)]">
+                <div className="relative aspect-[4/3] w-full">
+                  {isVideoFile(src) ? (
+                    <>
+                      <video
+                        src={src}
+                        controls
+                        playsInline
+                        preload="metadata"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      />
+                      <span className="absolute top-2 right-2 inline-flex items-center gap-1 rounded-full border border-cream-200 bg-offwhite/90 px-2 py-1 text-[10px] font-sans uppercase tracking-wider text-ink">
+                        <svg viewBox="0 0 24 24" fill="currentColor" className="h-3 w-3" aria-hidden>
+                          <path d="M8 6.82v10.36c0 .57.62.92 1.12.63l8.14-5.18a.74.74 0 0 0 0-1.26L9.12 6.2A.74.74 0 0 0 8 6.82Z" />
+                        </svg>
+                        Video
+                      </span>
+                    </>
+                  ) : (
+                    <Image
+                      src={src}
+                      alt={`Gallery image ${index + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  )}
+                </div>
+                <figcaption className="px-3 py-2 text-xs font-sans uppercase tracking-wider text-ink-faint bg-offwhite/80 border-t border-cream-200">
+                  {isVideoFile(src) ? "Video" : "Image"} {index + 1}
+                </figcaption>
+              </figure>
+            </a>
+          )
+        })}
       </div>
     </section>
   )
