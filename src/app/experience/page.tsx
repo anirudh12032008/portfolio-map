@@ -12,41 +12,54 @@ const exp = [
         category: "Mentorship",
         items: [
             {
-                title: "Research Commitment Mentor Cohort #5",
-                org: "Incognito Blueprints",
-                period: "Apr 2024 - Jul 2024 · 3 months",
-                desc: "Mentored a high school student in a 12 week research commitment, guiding them through the process of developing and executing an independent research project in the field of human-computer interaction. Provided regular feedback and support to help them refine their research question, design their study, and analyze their results.",
-                tags: ["Mentorship", "Research", "Technical Guidance"],
-                href: "/experience/research-mentor-5",
-            },
-            {
                 title: "Python Mentor",
                 org: "Sheryians Coding School",
                 period: "Feb 2024 - Aug 2024 · 6 months",
-                desc: "Mentored 2 batches P15 and P16 of 100+ college students in learning Python programming fundamentals, including variables, data structures, and basic algorithms. Provided one-on-one tutoring sessions and guided them through hands-on coding exercises.",
+                desc: "Mentored 2 batches (P15 & P16) of 100+ college students in Python fundamentals. Created a custom platform for problem-solving with built-in compiler, leaderboards, and resources. Stayed available for support and resolved repeated issues to ensure student retention.",
                 tags: ["Mentorship", "Programming", "Education"],
                 href: "/experience/python-mentor",
             },
             {
-                title: "Research Commitment Mentor Cohort #6",
+                title: "Research Commitment Mentor Cohort #5",
                 org: "Incognito Blueprints",
-                period: "May 2025 - Jul 2025 · 3 months",
-                desc: "Mentored a group of college students in a 12 week research commitment, guiding them through the process of developing and executing an independent research project in the field of human-computer interaction. Provided regular feedback and support to help them refine their research question, design their study, and analyze their results.",
+                period: "Apr 2024 - Jul 2024 · 3 months",
+                desc: "Mentored a high school student through a 12-week independent research journey in human-computer interaction. Provided weekly checkpoints, feedback loops, and confidence building to help them develop and defend their research findings.",
                 tags: ["Mentorship", "Research", "Technical Guidance"],
-                href: "/experience/research-mentor-6",
+                href: "/experience/research-mentor-5",
             },
         ]
     },
     {
-        category: "Internship",
+        category: "Event Organization & Community Scaling",
         items: [
             {
-                title: "Artificial Intelligence Intern",
-                org: "Unsway",
-                period: "Aug 2024 - Jun 2024 · 3 months",
-                desc: "Collaborated with the team to develop and implement AI algorithms for various applications, including natural language processing and computer vision. Contributed to the design and optimization of machine learning models, and assisted in data preprocessing and analysis tasks.",
-                tags: ["Internship", "AI", "Team work"],
-                href: "/experience/ai-intern-unsway",
+                title: "Portal VR - YSWS Organizer",
+                org: "Hack Club",
+                period: "Jul 2025 - Nov 2025",
+                desc: "Organized Portal VR as a Hack Club YSWS event exploring VR with A-Frame. Designed a tier-based program for all skill levels, ran workshops, managed participant support, handled reviews and timelines. Coordinated 12.2 weighted grants of work across 12+ submitted projects.",
+                tags: ["Community", "Events", "VR", "Hack Club"],
+                href: "http://portalvr.hackclub.com/",
+            },
+            {
+                title: "Optimization Sidequest - FlavorTown",
+                org: "Hack Club",
+                period: "Mar 2026 - Present",
+                desc: "Co-organizing the Optimization Sidequest for Hack Club's FlavorTown. Created PR requirement, designed custom banner art, defined requirements and shop items, and continuously review submissions while supporting participants.",
+                tags: ["Community", "Events", "Hack Club"],
+                href: "/experience/optimize-sidequest",
+            }
+        ]
+    },
+    {
+        category: "Community Contributions",
+        items: [
+            {
+                title: "Shipwright & YSWS Reviews",
+                org: "Hack Club",
+                period: "Jun 2025 - Present",
+                desc: "Active reviewer across FlavorTown and Summer Of Making programs. Completed 2000+ Shipwright reviews and 1000+ YSWS reviews. Among the top reviewers, supporting builders and makers at early stages of their journeys with quality feedback.",
+                tags: ["Community", "Reviews", "Hack Club"],
+                href: "/experience/reviews",
             },
         ]
     },
@@ -57,60 +70,47 @@ const exp = [
                 title: "Zero to One Program Volunteer",
                 org: "Sheryians Coding School",
                 period: "Dec 2022 · 1 week",
-                desc: "Volunteered for the Zero to One Program, organized by Sheryians Coding School at St. Thomas Convent School for High School students, where I provided support in organizing and facilitating learning sessions for high school students. Assisted in coordinating activities and ensuring the smooth execution of the program, which aimed to introduce students to foundational computer and IT skills.",
-                tags: ["Volunteer", "Education", "Community Engagement"],
+                desc: "Supported a 7-day workshop organized at St. Thomas Convent School for 100+ high school students. Helped coordinate with the school, managed operations, and taught one session on basic web development fundamentals.",
+                tags: ["Volunteer", "Education", "Community"],
                 href: "/experience/zero-to-one-volunteer",
             },
             {
-                title: "Student Ambassador",
-                org: "Oswaal Books",
-                period: "May 2025 - Aug 2025 · 4 months",
-                desc: "Represented the brand as a student ambassador, promoting Oswaal Books' products and services to fellow students. Organized and participated in various marketing campaigns and events to increase brand awareness and student engagement.",
-                tags: ["Ambassador", "Marketing", "Student Engagement"],
-                href: "/experience/student-ambassador-oswaal",
+                title: "School Content Team Lead",
+                org: "School",
+                period: "2024 - 2025",
+                desc: "Led initial video content creation efforts for school. Headed the team, onboarded members, and worked on filming and editing 3 videos for the school YouTube page.",
+                tags: ["Leadership", "Content Creation", "Education"],
+                href: "/experience/schoolcontent",
             },
         ]
     },
     {
-        category: "Community Contributions",
+        category: "Skills & Learning",
         items: [
             {
-                title: "Shipwright (Reviewer)",
-                org: "Hack Club",
-                period: "Jun 2025 - Present",
-                desc: "Active contributor across two long running community programs FlavorTown and Summer Of Making. Submitted over 2,000 reviews and participated in community activities supporting builders, learners, and makers. Proud to have supported people at early stages of their journeys.",
-                tags: ["Community", "Reviews", "Hack Club"],
-                href: "/experience/shipwright-reviewer",
+                title: "Competitive Programming",
+                org: "LeetCode & HackerRank",
+                period: "2024 - 2025",
+                desc: "Spent 6 months learning Data Structures and Algorithms in Python. Completed 150+ LeetCode problems and all Python problems on HackerRank with 5-star rating in both Python and SQL.",
+                tags: ["DSA", "Programming", "Problem Solving"],
+                href: "/experience/cp",
             },
             {
-                title: "YSWS Reviewer",
-                org: "Hack Club",
-                period: "Jun 2025 - Present",
-                desc: "Reviewed over 1000 submissions for FlavorTown and Summer Of Making programs, which involved doing internal checks and submitting them to the Unifed database. This role was crucial in maintaining the quality and integrity of the programs, ensuring that submissions met the required standards.",
-                tags: ["Community", "Reviews", "Hack Club"],
-                href: "/experience/ysws-reviewer",
-            },
-        ]
-    },
-    {
-        category: "Event Organization",
-        items: [
-            {
-                title: "PORTAL VR - YSWS Organizer",
-                org: "Hack Club",
-                period: "Jul 2025 - Nov 2025",
-                desc: "Organized PORTAL VR event as part of the Hack Club's You Ship We Ship initiative. This involved coordinating with participants, managing fullfilments, reviewing the projects, organizing workshops and ensuring a smooth execution of the event. Total 122hr ( 12.2 Weighted Grants ) of work was put in by the participants in their final projects",
-                tags: ["Community", "Events", "Hack Club"],
-                href: "http://portalvr.hackclub.com/",
+                title: "Game Development",
+                org: "Personal Learning",
+                period: "2024 - Present",
+                desc: "Built small games and shared tutorials online on YouTube. Continued learning and experimenting with game development concepts independently.",
+                tags: ["Game Dev", "Content Creation", "Learning"],
+                href: "/experience/gamedev",
             },
             {
-                title: "Optimize SideQuest - FlavorTown Organizer",
-                org: "Hack Club",
-                period: "Mar 2026 - Present",
-                desc: "Organized and managed the Optimize SideQuest event as part of the Hack Club's FlavorTown. This involved coordinating with participants, reviewing the projects and ensuring a smooth execution of the event.",
-                tags: ["Community", "Events", "Hack Club"],
-                href: "/experience/optimize-sidequest",
-            }
+                title: "3D Printing & Modeling",
+                org: "Personal Projects",
+                period: "2024 - Present",
+                desc: "Own Bambu Lab H2D and A1 mini printers. Designed and 3D printed 250+ models, recently started designing models and sharing online on Printables.",
+                tags: ["3D Printing", "Engineering", "Design"],
+                href: "/experience/3dp",
+            },
         ]
     }
 ]

@@ -6,35 +6,44 @@ import Link from "next/link"
 
 const inter = [
     {
-        title: "Research",
-        desc: "The feeling of going into the depths of a topic is one of the best feelings for me :) I have coauthored 2 research papers published in JKLST",
+        title: "Research Mentorship",
+        desc: "Mentored 8 teams of international high school students in an 8-week research program across two cohorts. Co-authored two research papers published in JKLST.",
         link: "/life/research"
     },
     {
-        title: "Piano",
-        desc: "I started playing piano when I was 10 and have been playing ever since, I also have a YouTube channel where I post piano covers and tutorials <3  ",
-        // link: "https://www.youtube.com/watch?v=SmIjL40Wq74&list=PLQoQcohWBikjM_Go585JNFOknpXOOduNZ"
+        title: "Piano & Music",
+        desc: "Learned piano from a young age and regularly practiced through covers, tutorials, and performances at school events. Shared music tutorials online.",
         link: "/life/piano"
     },
     {
+        title: "KBC (National TV Appearance)",
+        desc: "Participated in Kaun Banega Crorepati (Indian Who Wants to Be a Millionaire) and won ₹640k. Same quiz game I built 7 years earlier in QBASIC.",
+        link: "/life/kbc"
+    },
+    {
         title: "Sketching",
-        desc: "I love sketching portraits :) I really enjoy just spending the whole day sketching and listening to music, it's really relaxing and fun",
+        desc: "Started sketching during COVID and practiced regularly creating portraits of famous people, friends, and family.",
         link: "/life/sketching"
     },
     {
-        title: "Cooking",
-        desc: "Starting cooking during the pandemic was a game changer for me, now whenever I feel stressed or just want to have some fun I cook :) ",
-        link: "/life/cooking"
-    },
-    {
         title: "Poetry",
-        desc: "I find poetry the best way to express my thoughts and to make sense around me, short simple but still very deep",
+        desc: "Wrote poetry primarily in Hindi to express feelings and thoughts. Performed at school publications and Bhopal Literature Festival with award recognition.",
         link: "/life/poetry"
     },
     {
-        title: "Anchoring",
-        desc: "I have been doing achoring in my school from 7th grade and I really like being on stage and seeing soo many people listening, I also did anchoring in a relative wedding hehehe",
-        link: "/life/anchoring"
+        title: "Cooking",
+        desc: "Learned cooking at home during lockdown. Started preparing meals for myself and family through self-teaching and experimentation.",
+        link: "/life/cooking"
+    },
+    {
+        title: "Competitions & Certificates",
+        desc: "Participated in multiple academic and extracurricular competitions across debates, technical, and creative events.",
+        link: "/life/achievements"
+    },
+    {
+        title: "Courses & Learning",
+        desc: "Completed online courses including CS50, Stanford, Google, and cloud programs. Explored concepts across different domains.",
+        link: "/life/courses"
     }
 ]
 
