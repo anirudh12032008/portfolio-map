@@ -2,10 +2,12 @@ import { compileMDX } from "next-mdx-remote/rsc"
 import { notFound } from "next/navigation"
 import path from "path"
 import { promises as fs } from "fs"
+import { RouteGallery } from "@/components/sections/RouteGallery"
 
 type ProjectPageFrontmatter = {
   title?: string
   description?: string
+  gallery?: string[]
 }
 
 function toTitleCase(value: string) {
@@ -71,6 +73,7 @@ export default async function ProjectRoutePage({
         </div>
 
         <article className="max-w-3xl space-y-6 text-ink-soft leading-relaxed">{content}</article>
+        <RouteGallery items={frontmatter.gallery} section="projects" route={route} />
       </section>
     </div>
   )
