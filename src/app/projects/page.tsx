@@ -148,6 +148,14 @@ export default function Projects() {
 
     const fil = active === "All" ? projects : projects.filter((p) => p.tags.includes(active));
 
+  const getProjectHref = (project: (typeof projects)[number]) => {
+    if (project.link) {
+      return project.link
+    }
+
+    return `/projects/${toRouteSlug(project.title)}`
+  }
+
   const toRouteSlug = (value: string) =>
     value
       .toLowerCase()
@@ -199,11 +207,11 @@ export default function Projects() {
                           data-cursor
                           role="button"
                           tabIndex={0}
-                          onClick={() => router.push(`/projects/${toRouteSlug(p.title)}`)}
+                          onClick={() => router.push(getProjectHref(p))}
                           onKeyDown={(event) => {
                             if (event.key === "Enter" || event.key === " ") {
                               event.preventDefault();
-                              router.push(`/projects/${toRouteSlug(p.title)}`);
+                              router.push(getProjectHref(p));
                             }
                           }}
                           className="group relative z-20 text-gold rounded-2xl border border-cream-200 bg-offwhite/40 backdrop-blur-[1px] p-7 transition-all duration-300 hover:shadow-[0_18px_36px_rgba(30,58,95,0.14)] hover:bg-offwhite/90 hover:-translate-y-1 hover:border-cream-300 flex flex-col h-full cursor-pointer"
