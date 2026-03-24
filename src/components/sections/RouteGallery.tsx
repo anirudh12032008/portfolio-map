@@ -24,16 +24,43 @@ function isYoutubeUrl(value: string) {
 }
 
 function extractYoutubeId(url: string): string | null {
-  const regexPatterns = [
-    /(?:youtube\.com\/watch\?v=|youtube\.com\/embed\/|youtu\.be\/|youtube-nocookie\.com\/embed\/)([^&\n?#]+)/,
-    /youtube\.com\/watch\?.*v=([^&\n?#]+)/,
-  ]
+  try {
+    const parsed = new URL(url)
+    const host = parsed.hostname.replace(/^www\./, "")
 
-  for (const regex of regexPatterns) {
-    const match = url.match(regex)
-    if (match && match[1]) {
-      return match[1]
+    if (host === "youtu.be") {
+      const pathParts = parsed.pathname.split("/").filter(Boolean)
+
+      if (pathParts[0] === "watch") {
+        const queryId = parsed.searchParams.get("v")
+        return queryId || null
+      }
+
+      if (pathParts[0] === "shorts" && pathParts[1]) {
+        return pathParts[1]
+      }
+
+      return pathParts[0] || null
     }
+
+    if (host === "youtube.com" || host === "youtube-nocookie.com") {
+      const queryId = parsed.searchParams.get("v")
+      if (queryId) {
+        return queryId
+      }
+
+      const pathParts = parsed.pathname.split("/").filter(Boolean)
+
+      if (pathParts[0] === "embed" && pathParts[1]) {
+        return pathParts[1]
+      }
+
+      if (pathParts[0] === "shorts" && pathParts[1]) {
+        return pathParts[1]
+      }
+    }
+  } catch {
+    return null
   }
 
   return null
