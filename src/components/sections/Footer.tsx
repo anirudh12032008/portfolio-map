@@ -13,6 +13,7 @@ export function Footer() {
         </p>
         <p>© {year} · Built with love :)</p>
       </div>
+{/* pls ignore ts for now i'll add stuff a bit later */}
     </footer>
   );
 }

@@ -13,6 +13,9 @@
 	--color-cream-100: var(--surface);
 	--color-cream-200: var(--border);
 	--color-olive-dark: var(--olive-dark);
+	--font-serif: var(--font-serif), 'Cormorant Garamond', Georgia, serif;
+	--font-sans: var(--font-sans), 'DM Sans', system-ui, sans-serif;
+    --font-hand: var(--font-hand), 'Caveat', cursive;
 }
 
 :root {

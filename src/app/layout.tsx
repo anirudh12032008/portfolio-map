@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono,Cormorant_Garamond, DM_Sans, Caveat } from "next/font/google";
 import "../styles/global.css";
 import Script from "next/script";
 import "./globals.css"
@@ -16,6 +16,27 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+const serif = Cormorant_Garamond({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+});
+
+const sans = DM_Sans({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
+});
+
+const hand = Caveat({
+  variable: "--font-hand",
+  subsets: ["latin"],
+  weight: ["400", "600"],
+});
+
 
 export const metadata: Metadata = {
   title: "Anirudh Sahu",
@@ -37,7 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${serif.variable} ${sans.variable} ${hand.variable} antialiased`}
       >
         <div className="relative min-h-screen w-full text-ink bg-cream-50 overflow-hidden">
           <Grid className="absolute inset-0" />
