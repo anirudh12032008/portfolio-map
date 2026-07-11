@@ -67,9 +67,82 @@
 
 
 
-import { animate, motion } from "framer-motion";
+import { animate, motion,AnimatePresence, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+// import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+
 import clsx from "clsx";
+
+const builds = [ 
+    "wireless_rover",
+    "ECG_machine",
+    "Macropad",
+    "VR_Worlds",
+    "Communities",
+    "ML_models"
+]
+
+const cAnim = {
+    hidden: { opacity:0, y:"0.35em", filter:"blur(6px)"},
+    show: (i:number) => ({ opacity:1, y:"0em", filter:"blur(0px)", transition:{duration:0.5, delay:0.15 + i*0.1, ease:[0.25, 0.1, 0.25, 1]}}),
+}
+
+
+function FunText({ text, offset }: { text: string; offset: number }) {
+    return (
+        <>
+        {text.split(" ").map((x, i) => (
+            <motion.span
+            key={i}
+            custom={offset+i}
+            variants={cAnim}
+            initial="hidden"
+            animate="show"
+            className='inline-block'
+            style={{whiteSpace:"pre"}}>
+{x}
+            </motion.span>
+        ))}
+        </>
+    );
+}
+
+
+
+function Rot(){
+    const reduce = useReducedMotion();
+    const [i, setI] = useState(0);
+    useEffect(() => {
+        if (reduce) return;
+        const t = setInterval(() => {
+            setI((i) => (i + 1) % builds.length);
+        }, 3000);
+        return () => clearInterval(t);
+    }, [reduce]);
+
+
+    
+
+
+    return(
+        <span className="inline-block relative overflow-hidden align-bottom">
+<AnimatePresence mode="wait" >
+<motion.span key={builds[i]}
+initial={reduce ? {} : { opacity:0, y:"0.35em", filter:"blur(6px)"}}
+animate={reduce ? {} : { opacity:1, y:"0em", filter:"blur(0px)", transition:{duration:0.5, ease:[0.25, 0.1, 0.25, 1]}}}
+exit={reduce ? {} : { opacity:0, y:"-0.35em", filter:"blur(6px)", transition:{duration:0.5, ease:[0.25, 0.1, 0.25, 1]}}}
+className="inline-block"
+>
+{FunText({text:builds[i], offset:i})}
+
+
+</motion.span>
+</AnimatePresence>
+        </span>
+    )
+}
+
+
 
 
 const socials = [
@@ -113,7 +186,10 @@ const item = {
 
 
 export function Hero(){
-
+    const reduce = useReducedMotion();
+    // my name is just op gng
+const boostGrid = (on: boolean) =>
+        window.dispatchEvent(new CustomEvent("grid-boost", { detail: on }));
     return (
         <div className="relative min-h-[88vh] flex flex-col justify-center pt-28 pb-16 max-w-5xl mx-auto px-6">
 
@@ -125,16 +201,47 @@ className="inline-block text-xs uppercase tracking-widest text-gold mb-7 font-me
 variants={container}
 initial="hidden"
 animate="show"
-className="max-w-2xl">
+className="relative max-w-2xl">
     
-<motion.h1
+{/* <motion.h1
 variants={item}
 className="font-serif text-display"
 style={{fontSize: "clamp(3.5rem, 9vw, 7rem)", lineHeight: 1}}
 >
     Hi I'm <span className=" glow relative" style={{fontStyle:"italic"}}>Anirudh</span>.
-</motion.h1>
-
+</motion.h1> */}
+<h1
+className="font-serif text-display relative"
+style={{fontSize: "clamp(3.5rem, 9vw, 7rem)", lineHeight: 1}}
+>
+<FunText text="Hi, I'm " offset={0} />
+    <span
+        className="relative pl-6 inline-block italic"
+        onMouseEnter={() => boostGrid(true)}
+        onMouseLeave={() => boostGrid(false)}
+        data-cursor
+    >
+        <FunText text=" Anirudh" offset={8} />
+        <motion.svg
+            viewBox="0 0 220 18"
+            fill="none"
+            className="absolute left-0 -bottom-2 w-full h-[0.16em] text-gold"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+        >
+            <motion.path
+                d="M3 12 C 40 6, 80 14, 120 9 S 190 6, 217 10"
+                stroke="currentColor"
+                strokeWidth={5}
+                strokeLinecap="round"
+                initial={reduce ? { pathLength: 1 } : { pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 0.9, delay: 1.0, ease: "easeInOut" }}
+            />
+        </motion.svg>
+    </span>
+    <FunText text="." offset={15} />
+</h1>
 <motion.p 
 variants={item}
 // yeah the yapping was needed
@@ -145,13 +252,18 @@ className="mt-7 text-lg md:text-xl text-inf-soft font-sans font-light leading-re
 
 
 
-<motion.p 
+{/* <motion.p 
 variants={item}
 className="mt-3 text-sm text-ink-muted">
 
     Developer · Hardware Builder · Mentor · Curious Learner 
-</motion.p>
+</motion.p> */}
 
+<motion.p
+variants={item}
+className="mt-3 text-base text-ink-muted">
+    Lately I've been building <Rot/>
+</motion.p>
 
 <motion.div variants={item} className="mt-10 flex flex-wrap gap-3">
     {socials.map((s) => (
