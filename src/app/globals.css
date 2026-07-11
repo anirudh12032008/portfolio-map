@@ -45,3 +45,7 @@
 	--olive-dark:#6b7f4b;
 	--gold:      #d8bc86;
 }
+
+* {
+	cursor: none !important;
+}
