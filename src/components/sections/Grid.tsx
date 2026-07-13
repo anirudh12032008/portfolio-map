@@ -109,37 +109,78 @@ const f = new Float32Array(cols * rows);
 ctx.clearReact(0, 0, W, H);
 ctx.lineCap = "round";
 
+for (let l =0; l < LEVELS; l++) {
+    const iso = 0.167 + (l/(LEVELS-1)) * 0.76;
+    const big = l % 4 === 0;
+    ctx.strokeStyle = big ? gold : ink;
+    ctx.lineWidth = big ? 1.5 : 0.8;
+    ctx.globalAlpha = big ? 0.7 : 0.4 + (l/(LEVELS-1)) * 0.5;
+    ctx.beginPath();
 
-)
+    for ( let j = 0; j < rows - 1; j++)
+        for ( let i = 0; i < cols - 1; i++) {
 
 
-if (istouch) {
-    return (
-      <div
-        className={`${className} bg-grid-hero`}
-        style={{
-          position: 'absolute',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-          pointerEvents: 'none',
-          zIndex: 0,
-        }}
-      />
-    );
+// who ever is reading this sorry for the nomenclature, I was tired :sob:
+
+
+    const a = f[j*cols + 1]
+    const bb = f[j*cols + i + 1];
+    const c = f[(j+1)*cols + i + 1];
+    const dd = f[(j+1)*cols + i];
+    const k = ( a> iso? 8: 0) | ( bb > iso ? 4:0) | ( c>iso ? 2:0) | ( dd > iso?1:0);
+    if (!k || k ===15) continue;
+
+    const x = i * CELL, y = j * CELL;
+    const T = [x + CELL * ((iso - a) / (bb - a)), y];
+    const Rt = [x + CELL, y + CELL * ((iso - bb) / (c - bb))];
+    const B = [x + CELL * ((iso - dd) / (c - dd)), y + CELL];
+    const L = [x, y + CELL * ((iso - a) / (dd - a))];
+    const seg = (p: number[], q: number[]) => { ctx.moveTo(p[0], p[1]); ctx.lineTo(q[0], q[1]) };
+ 
+
+
+
+    if (k === 1 || k === 14) seg(B, L);
+    else if (k === 2 || k === 13) seg(B, Rt);
+    else if (k === 3 || k === 12) seg(L, Rt);
+    else if (k === 4 || k === 11) seg(T, Rt);
+    else if (k === 6 || k === 9) seg(T, B);
+    else if (k === 7 || k === 8) seg(T, L);
+    else if (k === 5) { seg(T, L); seg(B, Rt) }
+    else { seg(T, Rt); seg(L, B) }
+        }
+        ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+    raf = requestAnimationFrame(draw);
+        };
+
+const still = istouch || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const move = ( e:MouseEvent) => {
+    const r = cv.getBoundingClientRect();
+    const x =  e.clientX - r.left, y = e.clientY - r.top;
+    mouse.current = x >= 0 && x <= r.width && y >=0 && y <= r.height ? {x,y, on:true} : {x:-200, y:-200, on:false};
+};
+
+
+if ( still) {
+    draw();
+    cancelAnimationFrame(raf);
+} else {
+    raf = requestAnimationFrame(draw);
+    window.addEventListener("mousemove", move);
 }
 
+return () => {
+    window.removeEventListener("mousemove", move);
+    window.removeEventListener("resize", resize);
+    ro.disconnect();
+    cancelAnimationFrame(raf);
+}
+    }, [istouch]);
 
-return (
-    <canvas
-    ref={ref}
-        className={className}
-        style={{ position: "absolute", inset: 0, width: 
-        '100%', height: '100%', pointerEvents: 'none', zIndex: 0,
-         }}
-
-
-         />
-
-        );
+    return <canvas ref={ref} className={className}
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 0 }} />
 };
