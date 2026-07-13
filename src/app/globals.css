@@ -23,7 +23,7 @@
 	--offwhite: #F8F6F1;
   --surface:  #F5F3EE;
   --border:   #E2DDD3;
-  --grid-line: rgba(62, 77, 25, 0.08);
+  --grid-line: rgba(26, 26, 26, 0.13);
   --ink:      #1A1A1A;
   --ink-soft: #3D3935;
   --ink-muted:#6B6560;
@@ -37,7 +37,7 @@
 	--offwhite:  #151a22;
 	--surface:   #1a2230;
 	--border:    #2b3547;
-	--grid-line: rgba(138, 168, 209, 0.12);
+	--grid-line: rgba(233, 237, 245, 0.14);
 	--ink:       #e9edf5;
 	--ink-soft:  #c8d0dd;
 	--ink-muted: #95a0b3;

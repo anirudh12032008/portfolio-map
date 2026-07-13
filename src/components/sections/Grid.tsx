@@ -1,152 +1,117 @@
 "use client"
-import { useRef, useEffect, useCallback, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 
 
-interface GridProps {
-    className?: string;
+
+
+
+const CELL = 20;
+const LEVELS = 14;
+const DRIFT = 0.00032;
+const R = 300; 
+const AMP = 0.7;
+
+
+// some random bs
+function hash(x,y,z){
+    let h = x * 374761393 + y * 668265263 + z * 1440662683;
+    h = (h ^ (h >> 13)) * 1274126177;
+    return ((h ^ (h >> 16)) & 0x7fffffff) / 0x7fffffff;
 }
 
 
-export const Grid = ({className}: GridProps) => {
+
+function noise(x,y,z){
+    const xi = Math.floor(x), yi = Math.floor(y), zi = Math.floor(z);
+        const s = (t: number) => t * t * (3 - 2 * t);
+    const xf = s(x - xi), yf = s(y - yi), zf = s(z - zi);
+let v = 0;
+ for (let d = 0; d < 8; d++) {
+        const a = d & 1, b = (d >> 1) & 1, c = d >> 2;
+        v += hash(xi + a, yi + b, zi + c) * (a ? xf : 1 - xf) * (b ? yf : 1 - yf) * (c ? zf : 1 - zf);
+    }
+    return v;
+}
+
+
+
+const terrain = (x: number, y: number, t: number) => {
+        noise(x * 0.0035, y * 0.0035, t) * 0.65 + noise(x * 0.008, y * 0.008, t * 1.7 + 40) * 0.35;
+
+export const Grid = ({ className }: { className?: string }) => {
     const ref = useRef<HTMLCanvasElement>(null);
-    const mouseref = useRef({x:-200, y:-200, active:false});
+    const mouse = useRef({x:-200, y:-200, active:false});
     const anim = useRef<number>(0);
+    const boost = useRef({v:0, want:0});
 
 
     const [istouch, setIsTouch] = useState(false);
 
-    const SPACING = 40;
-    const WIDTH = 2;
-    const COLOR = "rgba(50,62,20,0.08)";
-    const RADIUS = 205;
-    // six sevennnnn
-    const STRENGTH = 1.067;
 
     useEffect(() => {
         const k = window.matchMedia("(hover: hover) and (pointer: fine)");
-        const handleChange = (e: MediaQueryListEvent) => setIsTouch(!e.matches);
-        k.addEventListener("change", handleChange);
-        setIsTouch(!k.matches);
-        return () => k.removeEventListener("change", handleChange);
+                setIsTouch(!k.matches);
+
+        const f = (e: MediaQueryListEvent) => setIsTouch(!e.matches);
+        k.addEventListener("change", f  );
+                const g = (e: Event) => { boost.current.want = (e as CustomEvent).detail ? 1 : 0 };
+        window.addEventListener("grid-boost", g);
+        return () => { k.removeEventListener("change", f); window.removeEventListener("grid-boost", g) };
     }, []);
 
+    useEffect(() => {
+        const cv = ref.current;
+        const ctx = cv?.getContext("2d");
+        if (!cv || !ctx) return;
+        let raf = 0;
+        let t = 0;
 
-const draw = useCallback(() => {
-    const canavas = ref.current;
-    if (!canavas) return;
-    const ctx = canavas.getContext("2d");
-    if (!ctx) return;
-
-    const {width, height} = canavas;
-    const {x: mx, y: my, active} = mouseref.current;
-    const lineColor = getComputedStyle(document.documentElement)
-        .getPropertyValue("--grid-line")
-        .trim() || COLOR;
-
-    ctx.clearRect(0, 0, width, height);
-    ctx.strokeStyle = lineColor;
-    ctx.lineWidth = WIDTH;
-
-
-    for (let x = 0; x <= width; x += SPACING) {
-        ctx.beginPath();
-        for (let y = 0; y <= height; y += SPACING) {
-            let drx = x;
-            let dry = y;
-            if (active) {
-                const dx = x - mx;
-                const dy = y - my;
-                const d = Math.sqrt(dx * dx + dy * dy);
-                if (d < RADIUS) {
-                    const force = ( 1- d / RADIUS) * STRENGTH;
-                    const angle = Math.atan2(dy, dx);
-                    const push = force* (STRENGTH - d) * 0.5
-                    drx += force * Math.cos(angle) * push; 
-                    dry += force * Math.sin(angle) * push;
-                }
-            }
-
-            if (y === 0) {
-                ctx.moveTo(drx, dry);
-            } else {
-                ctx.lineTo(drx, dry);
-            }
-        }
-        ctx.stroke();
-    }
-
-
-    for (let y = 0; y <= height; y += SPACING) {
-        ctx.beginPath();
-        for (let x = 0; x <= width; x += SPACING) {
-            let drx = x;
-            let dry = y;
-            if (active) {
-                const dx = x - mx;
-                const dy = y - my;
-                const d = Math.sqrt(dx * dx + dy * dy);
-                if (d < RADIUS) {
-                    const force = ( 1- d / RADIUS) * STRENGTH;
-                    const angle = Math.atan2(dy, dx);
-                    drx += force * Math.cos(angle);
-                    dry += force * Math.sin(angle);
-                }
-            }
-
-            if (x === 0) {
-                ctx.moveTo(drx, dry);
-            } else {
-                ctx.lineTo(drx, dry);
-            }   
-        }
-        ctx.stroke();
-    }
-anim.current = requestAnimationFrame(draw);
-}, []);
-
-useEffect(() => {
-    if (istouch) return;
-        const canavas = ref.current;
-        if (!canavas) return;
-
-
-        const resize = () => {
-            const parent = canavas.parentElement;
-            if (!parent) return;
-            canavas.width = parent.clientWidth;
-            canavas.height = Math.max(parent.clientHeight, parent.scrollHeight);
+        const resize = ()   => {
+            const p = cv.parentElement;
+            if(!p) return;
+            cv.width = p.clientWidth;
+            cv.height = Math.max(p.clientHeight, p.scrollHeight);
         };
-                // const force = Math.max(-RADIUS, Math.min(RADIUS, STRENGTH * (1 - d / RADIUS)));
-                // const angle = Math.atan2(dy, dx);
-                // drx += force * Math.cos(angle);
-                // dry += force * Math.sin(angle);
+        resize();
+        window.addEventListener("resize", resize);
+        const ro = new ResizeObserver(resize);
+        if (cv.parentElement) ro.observe(cv.parentElement);
 
-                resize();
-                window.addEventListener("resize", resize);
-                const observer = new ResizeObserver(resize);
-                if (canavas.parentElement) observer.observe(canavas.parentElement);
-                anim.current = requestAnimationFrame(draw);
+        const draw = () => {
+            const b = boost.current;
 
-                const onMove = (e: MouseEvent) => {
-                    const rect = canavas.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
 
-                    if (x >=0 && x <= rect.width && y >=0 && y <= rect.height) {
-                        mouseref.current = {x, y, active: true};
-                    } else {
-                        mouseref.current = { ...mouseref.current, active: false};
+            // mandatory SIX SEVENNNNN
+            b.v += (b.want - b.v) * 0.067;
+            t += DRIFT * (1 + b.v * 0.8);
+
+            const W = cv.width, H = cv.height;
+            const css = getComputedStyle(document.documentElement);
+            const ink = css.getPropertyPriority("--grid-line").trim() ||  "rgba(26,26,26,0.1)";
+                const gold = css.getPropertyValue("--gold").trim() || "#C9A96E";
+const cols = Math.ceil(W/CELL) +1;
+const rows = Math.ceil(H/CELL) +1;
+const amp = AMP * (1 + b.v * 1.1);
+const m = mouse.current;
+
+const f = new Float32Array(cols * rows);
+            for (let j = 0; j < rows; j++)
+                for (let i = 0; i < cols; i++) {
+                    const x = i * CELL, y = j * CELL;
+                    let v = terrain(x, y, t);
+                    if (m.on) {
+                        const d = Math.hypot(x - m.x, y - m.y);
+                        if (d < R) v += (1 - d / R) ** 2 * amp;
                     }
-                };
-                window.addEventListener("mousemove", onMove);
+                    f[j * cols + i] = v;
+                }
 
-                return () => {
-                    window.removeEventListener("resize", resize);
-                    window.removeEventListener("mousemove", onMove);
-                    observer.disconnect();
-                    cancelAnimationFrame(anim.current);
-                };
-}, [istouch, draw]);
+ctx.clearReact(0, 0, W, H);
+ctx.lineCap = "round";
+
+
+)
+
 
 if (istouch) {
     return (
