@@ -13,7 +13,7 @@ const AMP = 0.7;
 
 
 // some random bs
-function hash(x,y,z){
+function hash(x:number,y:number,z:number){
     let h = x * 374761393 + y * 668265263 + z * 1440662683;
     h = (h ^ (h >> 13)) * 1274126177;
     return ((h ^ (h >> 16)) & 0x7fffffff) / 0x7fffffff;
@@ -21,7 +21,7 @@ function hash(x,y,z){
 
 
 
-function noise(x,y,z){
+function noise(x:number,y:number,z:number){
     const xi = Math.floor(x), yi = Math.floor(y), zi = Math.floor(z);
         const s = (t: number) => t * t * (3 - 2 * t);
     const xf = s(x - xi), yf = s(y - yi), zf = s(z - zi);
@@ -35,12 +35,12 @@ let v = 0;
 
 
 
-const terrain = (x: number, y: number, t: number) => {
+const terrain = (x: number, y: number, t: number) => 
         noise(x * 0.0035, y * 0.0035, t) * 0.65 + noise(x * 0.008, y * 0.008, t * 1.7 + 40) * 0.35;
 
 export const Grid = ({ className }: { className?: string }) => {
     const ref = useRef<HTMLCanvasElement>(null);
-    const mouse = useRef({x:-200, y:-200, active:false});
+    const mouse = useRef({x:-200, y:-200, on:false});
     const anim = useRef<number>(0);
     const boost = useRef({v:0, want:0});
 
@@ -94,7 +94,7 @@ const rows = Math.ceil(H/CELL) +1;
 const amp = AMP * (1 + b.v * 1.1);
 const m = mouse.current;
 
-const f = new Float32Array(cols * rows);
+ const f = new Float32Array(cols * rows);
             for (let j = 0; j < rows; j++)
                 for (let i = 0; i < cols; i++) {
                     const x = i * CELL, y = j * CELL;
@@ -106,7 +106,7 @@ const f = new Float32Array(cols * rows);
                     f[j * cols + i] = v;
                 }
 
-ctx.clearReact(0, 0, W, H);
+ctx.clearRect(0, 0, W, H);
 ctx.lineCap = "round";
 
 for (let l =0; l < LEVELS; l++) {
