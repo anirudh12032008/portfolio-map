@@ -1,36 +1,16 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Modern Portfolio
 
-## Getting Started
+This is a cool portfolio website I created to showcase my work and skills, one of the mail highlishts for it is the special terrain background effect which took a while to implement
 
-First, run the development server:
+I have used nextJS to create this website and it is only a frontend
+the pages info is extracted from the content folder present in the main repo only
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+the projects page fetches data from the github username: anirudh12032008 ( my github ) so that' automated and wouldn't require anything else
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+other then that I have tried to not stay consistent with the desgin so you can see multiple different layouts on each page
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+I have changed the whole design once which could be tracked from the repo commits since I didn't lked it
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+I have used AI agents to do the repetitive work, but most of the time I have tried to write the important stuff like the background terrain myseld which required special attention, the theme might look a little generic cause I didn't had any inspirations in mind so had to follow them still i tried to give it a unique theme
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+made with love by Anirudh Sahu :D
