@@ -244,7 +244,7 @@ style={{fontSize: "clamp(3.5rem, 9vw, 7rem)", lineHeight: 1}}
 <motion.p 
 variants={item}
 // yeah the yapping was needed
-className="mt-7 text-lg md:text-xl text-inf-soft font-sans font-light leading-relaxed max-w-lg"
+className="mt-7 text-lg md:text-xl text-ink-soft font-sans font-light leading-relaxed max-w-lg"
 
 > I enjoy building things around
 <span className="font-serif text-navy"> software</span>, <span className="font-serif text-navy">hardware</span>, <span className="font-serif text-navy">community</span></motion.p>
@@ -290,12 +290,8 @@ className="mt-3 text-base text-ink-muted">
 
     className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-ink-muted font-sans flex items-center gap-2">
         {/* i can't make it better so used copilot here  */}
-        <span className="text-[11px] uppercase tracking-[0.18em]">
-            Scroll
-        </span>
-        <span aria-hidden="true" className="inline-block text-base leading-none animate-bounce">
-            ↓
-        </span>
+        {/* ps I just removed it */}
+       
     </motion.div>
         </div>
     )

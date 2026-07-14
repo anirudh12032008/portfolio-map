@@ -59,31 +59,11 @@ export function Nav() {
     </Link>
 
     <div className="md:hidden flex items-center gap-2">
-        <button
-            type="button"
-            onClick={toggleTheme}
-            aria-pressed={dark}
-            aria-label="Toggle dark mode"
-            className="inline-flex items-center gap-1 rounded-full border border-cream-200 bg-offwhite/70 p-1.5 text-xs font-sans text-ink-muted transition-all duration-300 hover:border-navy/50 hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy/40"
-        >
-            <span
-                className={`inline-flex h-5 w-5 items-center justify-center rounded-full transition-colors duration-300 ${
-                    dark ? "bg-surface text-ink-muted" : "bg-navy/15 text-navy"
-                }`}
-                aria-hidden="true"
-            >
-                <Sun size={11} />
-            </span>
-            <span
-                className={`inline-flex h-5 w-5 items-center justify-center rounded-full transition-colors duration-300 ${
-                    dark ? "bg-navy/15 text-navy" : "bg-surface text-ink-muted"
-                }`}
-                aria-hidden="true"
-            >
-                <Moon size={11} />
-            </span>
+        
+<button type="button" onClick={toggleTheme} aria-label="Toggle dark mode"
+            className="p-2 text-ink-muted hover:text-ink">
+            {dark ? <Sun size={16} /> : <Moon size={16} />}
         </button>
-
         <button
             type="button"
             onClick={() => setMenu((prev) => !prev)}
@@ -111,29 +91,9 @@ export function Nav() {
         </Link>
     ))}
 
-        <button
-            type="button"
-            onClick={toggleTheme}
-            aria-pressed={dark}
-            aria-label="Toggle dark mode"
-            className="ml-2 inline-flex items-center gap-1 rounded-full border border-cream-200 bg-offwhite/70 p-1.5 text-xs font-sans text-ink-muted transition-all duration-300 hover:border-navy/50 hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy/40"
-        >
-            <span
-                className={`inline-flex h-6 w-6 items-center justify-center rounded-full transition-colors duration-300 ${
-                    dark ? "bg-surface text-ink-muted" : "bg-navy/15 text-navy"
-                }`}
-                aria-hidden="true"
-            >
-                <Sun size={13} />
-            </span>
-            <span
-                className={`inline-flex h-6 w-6 items-center justify-center rounded-full transition-colors duration-300 ${
-                    dark ? "bg-navy/15 text-navy" : "bg-surface text-ink-muted"
-                }`}
-                aria-hidden="true"
-            >
-                <Moon size={13} />
-            </span>
+       <button type="button" onClick={toggleTheme} aria-label="Toggle dark mode"
+            className="ml-2 p-2 text-ink-muted hover:text-ink">
+            {dark ? <Sun size={16} /> : <Moon size={16} />}
         </button>
 </nav>
 
