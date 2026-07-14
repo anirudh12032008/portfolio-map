@@ -94,7 +94,7 @@ export default function Timeline() {
     <div className="page-enter pt-16">
       <Section>
         <Heading
-          eye="Journey"
+          eye=""
           title="Timeline"
           desc="Key moments that shaped how I build, learn, and work with communities."
         />

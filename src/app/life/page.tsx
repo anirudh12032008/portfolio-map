@@ -54,7 +54,7 @@ export default function Life() {
         <>
         <div className="page-enter pt-16 md:pt-24">
 <Section>
-<Heading eye="life" title="Life Beyond Code" desc="The things that keep me curious, grounded, and occasionally surprised like covered in flour" />
+<Heading eye="" title="Life Beyond Code" desc="The things that keep me curious, grounded, and occasionally surprised like covered in flour" />
         <FadeIn delay={0.2}>
             <div className="mt-16 text-center max-w-xl mx-auto">
                 <p className="font-serif italic text-xl md:text-2xl text-ink-soft leading-relaxed">

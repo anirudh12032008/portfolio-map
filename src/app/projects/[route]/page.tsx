@@ -67,7 +67,6 @@ export default async function ProjectRoutePage({
     <div className="page-enter pt-16 md:pt-24">
       <section className="max-w-5xl mx-auto px-6 py-16 md:py-24">
         <div className="mb-10 md:mb-14">
-          <span className="text-xs inline-block font-sans font-medium uppercase tracking-widest text-gold mb-3">projects</span>
           <h1 className="text-display font-serif text-6xl text-ink">{title}</h1>
           <p className="text-base text-ink-muted font-light leading-relaxed max-w-xl mt-4">{description}</p>
           {frontmatter.gallery?.length ? (

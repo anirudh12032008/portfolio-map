@@ -169,7 +169,7 @@ export default function Projects() {
 
         <div className="page-enter pt-16">
             <Section>
-                <Heading eye="work" title="Projects" desc="A showcase of my work, from software to hardware and 3D printing" />
+                <Heading eye="" title="Projects" desc="A showcase of my work, from software to hardware and 3D printing" />
             
             
             

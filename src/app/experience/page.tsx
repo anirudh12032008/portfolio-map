@@ -204,7 +204,7 @@ export default function ExpPage() {
     
 </div> */}
 
-<Heading eye="Background" title="Experience" desc="Programs I've been part of, communities I've contributed to, and challenges I've helped run." />
+<Heading eye="" title="Experience" desc="Programs I've been part of, communities I've contributed to, and challenges I've helped run." />
 
  <FadeIn delay={0.2}>
             <div className="mt-16 text-center max-w-xl mx-auto">

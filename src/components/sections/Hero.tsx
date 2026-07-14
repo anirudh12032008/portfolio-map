@@ -194,6 +194,8 @@ const boostGrid = (on: boolean) =>
 <motion.h1
 variants={item}
 className="inline-block text-xs uppercase tracking-widest text-gold mb-7 font-medium font-sans" */}
+<div aria-hidden className="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 w-[46rem] max-w-full h-[36rem] bg-[radial-gradient(ellipse_at_center,var(--bg)_38%,transparent_72%)] blur-2xl" />
+
 <motion.div
 variants={container}
 initial="hidden"
@@ -262,17 +264,11 @@ className="mt-3 text-base text-ink-muted">
     Lately I've been building <Rot/>
 </motion.p>
 
-<motion.div variants={item} className="mt-10 flex flex-wrap gap-3">
+<motion.div variants={item} className="mt-10 flex flex-wrap gap-x-5 gap-y-1 text-sm font-sans">
     {socials.map((s) => (
-        <a
-        key={s.label}
-        href={s.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        // ahhhhhhhhhhhh
-       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-cream-100 border border-cream-200 text-ink text-sm font-sans hover:border-navy hover:bg-navy hover:text-white transition-all duration-200 shadow-sm" >
-            {s.icon}
-            {s.label}
+        <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+           className="underline underline-offset-4 decoration-ink-muted/30 hover:text-ink hover:decoration-ink">
+            {s.label.toLowerCase()}
         </a>
     ))}
 </motion.div>
